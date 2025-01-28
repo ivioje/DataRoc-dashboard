@@ -13,10 +13,8 @@ export default function DashboardLayout({
 }>) {
   return (
     <>
-      <body>
-        <Navbar />
-        {children}
-      </body>
+      <Navbar />
+      {children}
     </>
   );
 }
