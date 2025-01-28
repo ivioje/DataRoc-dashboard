@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.defaultFlex {
+  @apply flex items-center justify-between;
+}
+
+/* select.top-dropdown {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: #ffffff !important;
+  padding: 8px 12px !important;
+  height: 40px !important;
+  cursor: pointer !important;
+}
+
+select.top-dropdown option {
+  background-color: #ffffff !important;
+  padding: 10px !important;
+  height: 40px !important;
+}
+
+select.top-dropdown option:hover {
+  background-color: #ecfeff !important;
+} */
