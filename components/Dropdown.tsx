@@ -1,38 +1,52 @@
-import React from "react";
+"use client";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
+import { useGlobalContext } from "./providers";
+import { Briefcase, ChevronDown } from "lucide-react";
 
-const Dropdown = () => {
+export default function SelectLikeTab() {
+  const { handleSelectChange, selectedValue } = useGlobalContext();
+
+  const isSelected = selectedValue !== "";
+  const textColorClass = isSelected ? "text-[#157A6E]" : "text-gray-600";
+
   return (
-    <>
-      <div>
-        <select className="text-gray-700 outline-none font-medium top-dropdown">
-          <option selected value="Business Performance Metrics">
+    <div className="relative">
+      <Select value={selectedValue} onValueChange={handleSelectChange}>
+        <SelectTrigger
+          className={`border-none shadow-none bg-none outline-none text-lg text-gray-600 font-medium`}
+        >
+          <Briefcase size={20} className="font-extralight text-gray-400 mr-2" />
+          {selectedValue === "business"
+            ? "Business Performance Metrics"
+            : selectedValue === "website"
+            ? "Website Performance Metrics"
+            : selectedValue === "user"
+            ? "User Behavior Metrics"
+            : "Future Performance Metrics"}
+          <div className="pointer-events-none absolute inset-y-0 -right-10 flex items-center px-2 mt-1 text-gray-700">
+            <ChevronDown />
+          </div>
+        </SelectTrigger>
+        <SelectContent className={`bg-white w-[350px] shadow-sm border-none `}>
+          <SelectItem className={`options ${textColorClass}`} value="business">
             Business Performance Metrics
-            <svg
-              className="h-5 w-5 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </option>
-          <option value="Website Performance Metrics">
+          </SelectItem>
+          <SelectItem className={`options ${textColorClass}`} value="website">
             Website Performance Metrics
-          </option>
-          <option value="User Behavior Metrics">User Behavior Metrics</option>
-          <option value="Future Performance Metrics">
+          </SelectItem>
+          <SelectItem className={`options ${textColorClass}`} value="user">
+            User Behavior Metrics
+          </SelectItem>
+          <SelectItem className={`options ${textColorClass}`} value="future">
             Future Performance Metrics
-          </option>
-        </select>
-      </div>
-    </>
+          </SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
   );
-};
-
-export default Dropdown;
+}

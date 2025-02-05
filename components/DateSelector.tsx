@@ -12,11 +12,11 @@ const DateRangePicker = () => {
     <div className="flex items-center space-x-4">
       {/* From Date */}
       <div className="flex items-center rounded-md px-3 py-2 relative">
-        <span className="text-gray-500 mr-2">From</span>
+        <span className="text-gray-700 mr-2">From</span>
         <span className="relative">
           <CalendarDaysIcon
             size={20}
-            className="absolute left-0 -top-2 z-10 mx-3"
+            className="absolute left-0 -top-[10px] z-10 mx-3"
           />
         </span>
         <DatePicker
@@ -40,8 +40,14 @@ const DateRangePicker = () => {
       </div>
 
       {/* To Date */}
-      <div className="flex items-center rounded-md px-3 py-2">
-        <span className="text-gray-500 mr-2">To</span>
+      <div className="flex items-center rounded-md px-3 py-2 relative">
+        <span className="text-gray-700 mr-2">To</span>
+        <span className="relative">
+          <CalendarDaysIcon
+            size={20}
+            className="absolute left-0 -top-[10px] z-10 mx-3"
+          />
+        </span>
         <DatePicker
           selected={endDate}
           onChange={(date) => setEndDate(date)}
@@ -49,14 +55,14 @@ const DateRangePicker = () => {
           startDate={startDate}
           endDate={endDate}
           placeholderText="End Date"
-          className="outline-none"
+          className="outline-none z-[1] border border-gray-300 p-2 shadow-sm rounded-[10px] pl-10"
           dateFormat="d MMM yyyy"
           minDate={startDate}
         />
         {endDate && (
           <button
             onClick={() => setEndDate(null)}
-            className="text-gray-400 ml-2"
+            className="text-black font-bold absolute z-10 right-6"
           >
             ✕
           </button>

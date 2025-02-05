@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,22 +13,23 @@ body {
   @apply flex items-center justify-between;
 }
 
-/* select.top-dropdown {
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  background-color: #ffffff !important;
-  padding: 8px 12px !important;
-  height: 40px !important;
-  cursor: pointer !important;
+.borderRadius {
+  border-radius: 14px;
 }
 
-select.top-dropdown option {
-  background-color: #ffffff !important;
-  padding: 10px !important;
-  height: 40px !important;
+.options {
+  outline: none;
+  border: none;
+  @apply font-inter text-lg py-3 my-2 text-gray-700 font-medium;
 }
 
-select.top-dropdown option:hover {
-  background-color: #ecfeff !important;
-} */
+.options:hover {
+  background: #ecfeff !important;
+  cursor: pointer;
+}
+
+.custom-select {
+  -webkit-appearance: none !important; /* For Chrome, Safari, and newer versions of Opera */
+  -moz-appearance: none !important; /* For Firefox */
+  appearance: none !important; /* Standard syntax */
+}
