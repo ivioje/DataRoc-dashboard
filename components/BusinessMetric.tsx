@@ -1,6 +1,8 @@
 import React from "react";
 import { CardStat } from "@/lib/data";
 import Card from "./Card";
+import OperatingExpenses from "./charts/Expenses";
+import CustomerRetentionChart from "./charts/CustomerRetentionChart";
 
 const BusinessMetric = () => {
   return (
@@ -18,6 +20,12 @@ const BusinessMetric = () => {
             />
           </div>
         ))}
+      </div>
+
+      {/**charts */}
+      <div className="m-2 flex">
+        <OperatingExpenses />
+        <CustomerRetentionChart />
       </div>
     </div>
   );
