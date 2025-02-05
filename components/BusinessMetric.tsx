@@ -3,6 +3,7 @@ import { CardStat } from "@/lib/data";
 import Card from "./Card";
 import OperatingExpenses from "./charts/Expenses";
 import CustomerRetentionChart from "./charts/CustomerRetentionChart";
+import RevenueTable from "./RevenueTable";
 
 const BusinessMetric = () => {
   return (
@@ -26,6 +27,9 @@ const BusinessMetric = () => {
       <div className="m-2 flex">
         <OperatingExpenses />
         <CustomerRetentionChart />
+      </div>
+      <div>
+        <RevenueTable />
       </div>
     </div>
   );

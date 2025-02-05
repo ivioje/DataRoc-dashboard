@@ -2,7 +2,7 @@ import React from "react";
 import Dropdown from "./Dropdown";
 import DateRangePicker from "./DateSelector";
 import { FilterIcon } from "lucide-react";
-import { Button } from "./ui/button";
+import ButtonComponent from "./Button";
 
 const Filter = () => {
   return (
@@ -15,9 +15,7 @@ const Filter = () => {
             <FilterIcon />
             <span>Filter</span>
           </div>
-          <Button className="bg-gray-900 text-white py-2 rounded-[10px] px-4">
-            New AI Metric
-          </Button>
+          <ButtonComponent text="New AI Metric" />
         </div>
       </div>
     </div>
