@@ -75,6 +75,17 @@ export const ExpensesChartData = [
   },
 ];
 
+export interface Title {
+  Paid: string;
+  Unpaid: string;
+  Overdue: string;
+}
+export const titles: Title = {
+  Paid: "Payable",
+  Unpaid: "Unpaid",
+  Overdue: "Overdue",
+};
+
 export const employees = [
   {
     id: 1,
@@ -83,16 +94,16 @@ export const employees = [
     status: "Active",
     deposit: "Paid",
     amount: 200,
-    paymentDate: "15/APR/2020",
+    paymentDate: "2020/1/15",
   },
   {
     id: 2,
     name: "Anika Rhiel Madsen",
     email: "example@email.com",
-    status: "Inctive",
+    status: "Inactive",
     deposit: "Overdue",
     amount: 300,
-    paymentDate: "15/APR/2020",
+    paymentDate: "2024/4/15",
   },
   {
     id: 3,
@@ -101,7 +112,7 @@ export const employees = [
     status: "Active",
     deposit: "Paid",
     amount: 250,
-    paymentDate: "15/APR/2020",
+    paymentDate: "2022/9/15",
   },
   {
     id: 4,
@@ -110,6 +121,6 @@ export const employees = [
     status: "Active",
     deposit: "Unpaid",
     amount: 250,
-    paymentDate: "15/APR/2020",
+    paymentDate: "2021/10/15",
   },
 ];

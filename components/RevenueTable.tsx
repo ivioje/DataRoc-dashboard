@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Filter, Search } from "lucide-react";
-import { employees } from "@/lib/data";
+import { employees, titles } from "@/lib/data";
 import ButtonComponent from "./Button";
 import {
   DropdownMenu,
@@ -9,30 +9,87 @@ import {
   DropdownMenuTrigger,
   RadioGroup,
 } from "@radix-ui/react-dropdown-menu";
+import { formatDate } from "@/utils/formatDate";
+import { IoIosArrowDropdown } from "react-icons/io";
 
 export default function RevenueTable() {
   const [search, setSearch] = useState("");
   const [isActive, setIsActive] = useState("All");
   const [filteredUsers, setFilteredUsers] = useState(employees);
   const [sortBy, setSortBy] = useState("Default");
-  const [userType, setUserType] = useState("All");
+  const [title, setTitle] = useState("Revenue");
+  const [total, setTotal] = useState(
+    employees.reduce((sum, employee) => sum + employee.amount, 0)
+  );
 
   const filterUsers = (filter: string) => {
-    if (filter === "All") {
-      setIsActive("All");
-      return setFilteredUsers([...employees]);
+    let filteredList = employees;
+
+    switch (filter) {
+      case "All":
+        setIsActive("All");
+        filteredList = [...employees];
+        break;
+      case "Active":
+      case "Inactive":
+        setIsActive(filter);
+        filteredList = employees.filter(
+          (employee) => employee.status === filter
+        );
+        break;
+      default:
+        setIsActive(filter);
+        filteredList = employees.filter(
+          (employee) => employee.deposit === filter
+        );
     }
-    if (filter === "Active") {
-      setIsActive("Active");
-      return setFilteredUsers(
-        employees.filter((employee) => employee.status === filter)
-      );
-    }
-    setFilteredUsers(
-      employees.filter((employee) => employee.deposit === filter)
+
+    const totalAmount = filteredList.reduce(
+      (sum, employee) => sum + employee.amount,
+      0
     );
-    setIsActive(filter);
+
+    setFilteredUsers(filteredList);
+    setTotal(totalAmount);
+    setTitle(titles[filter as keyof typeof titles] || "Revenue");
   };
+
+  const sortUsers = (data: typeof employees, sortBy: string) => {
+    switch (sortBy) {
+      case "First Name":
+        return [...data].sort((a, b) => a.name.localeCompare(b.name));
+      case "Last Name":
+        return [...data].sort((a, b) => {
+          // sort by last word
+          const aLast = a.name.split(" ").pop() || "";
+          const bLast = b.name.split(" ").pop() || "";
+          return aLast.localeCompare(bLast);
+        });
+      case "Due Date":
+        return [...data].sort(
+          (a, b) =>
+            new Date(a.paymentDate).getTime() -
+            new Date(b.paymentDate).getTime()
+        );
+      case "Default":
+      case "Last Login":
+        return [...data].sort();
+      default:
+        return data;
+    }
+  };
+
+  useEffect(() => {
+    setFilteredUsers((prev) => sortUsers(prev, sortBy));
+
+    const searchResults = employees.filter(
+      (employee) =>
+        employee.name.toLowerCase().includes(search.toLowerCase()) ||
+        employee.email.toLowerCase().includes(search.toLowerCase()) ||
+        employee.paymentDate.includes(search)
+    );
+    setFilteredUsers(searchResults);
+  }, [sortBy, search]);
 
   return (
     <div className="p-6 my-5">
@@ -42,7 +99,10 @@ export default function RevenueTable() {
       <div className="flex justify-between items-center mb-4 border-b border-t-0 border-l-0 border-r-0 border-[#CFFAFE]">
         <div className="flex font-medium">
           <button
-            onClick={() => filterUsers("All")}
+            onClick={() => {
+              filterUsers("All");
+              setTitle("Revenue");
+            }}
             className={`px-4 py-2 text-gray-600 ${
               isActive === "All"
                 ? "border-[3px] border-t-0 border-l-0 border-r-0 border-black"
@@ -82,6 +142,11 @@ export default function RevenueTable() {
             Overdue
           </button>
         </div>
+        <div className="text-cyan-900">
+          <span className="text-sm">Total {title}: </span>
+          <span className="font-bold text-lg text-gray-950">${total} </span>
+          <span className="text-lg">USD</span>
+        </div>
       </div>
 
       <div className="relative flex items-center justify-between py-2 rounded-md w-full mt-8 mb-1">
@@ -92,7 +157,7 @@ export default function RevenueTable() {
                 <Filter size={20} /> <span>Filter</span>
               </div>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white min-w-[220px] px-2 py-3 shadow-md rounded-[10px] absolute top-2 -left-10">
+            <DropdownMenuContent className="bg-white min-w-[220px] px-2 py-3 shadow-md rounded-[10px] absolute top-2 -left-10 z-30">
               <p className="text-sm font-light uppercase mb-2 text-[#6E6893]">
                 Sort By:
               </p>
@@ -119,7 +184,6 @@ export default function RevenueTable() {
                       value={option}
                       checked={sortBy === option}
                       onChange={() => setSortBy(option)}
-                      onClick={() => filterUsers(option)}
                       className="hidden peer appearance-none"
                     />
                     <div className="w-4 h-4 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
@@ -150,7 +214,7 @@ export default function RevenueTable() {
                       name="isActive"
                       value={option}
                       checked={isActive === option}
-                      onChange={() => setIsActive(option)}
+                      onChange={() => filterUsers(option)}
                       className="hidden peer appearance-none"
                     />
                     <div className="w-4 h-4 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
@@ -175,12 +239,13 @@ export default function RevenueTable() {
         <ButtonComponent text="Download Invoice" />
       </div>
 
-      <table className="w-full text-left border-collapse">
+      <table className="w-full text-left border-collapse z-10">
         <thead>
-          <tr className="bg-[#ECFEFF] border border-r-0 border-l-0">
+          <tr className="bg-[#ECFEFF] border border-r-0 border-l-0 text-cyan-900">
             <th className="py-2 px-3">
-              <input type="checkbox" />
+              <input type="checkbox" className="w-4 h-4" />
             </th>
+            <th className="py-2 px-3"></th>
             <th className="py-2 px-3 font-medium uppercase text-sm text-gray-700">
               Employee Name
             </th>
@@ -200,19 +265,38 @@ export default function RevenueTable() {
             </th>
           </tr>
         </thead>
+        {!filteredUsers.length && (
+          <tbody className="w-full">
+            <tr className="">
+              <td className="text-cyan-900 text-center py-2">Nothing Found!</td>
+            </tr>
+          </tbody>
+        )}
         <tbody>
           {filteredUsers.map((employee) => (
-            <tr key={employee.id} className="border-b">
+            <tr
+              key={employee.id}
+              className="border-b transition-transform duration-300 relative"
+            >
               <td className="py-3 px-3">
-                <input type="checkbox" />
+                <input type="checkbox" className="w-4 h-4" />
+              </td>
+              <td className="py-3 px-3 text-cyan-900">
+                <IoIosArrowDropdown />
               </td>
               <td className="py-3 px-3">
                 <p className="font-medium">{employee.name}</p>
                 <p className="text-gray-500 text-sm">{employee.email}</p>
               </td>
               <td className="py-3 px-3">
-                <span className="px-2 flex w-fit items-center rounded-full text-sm bg-gray-200 text-green-700">
-                  <span className="text-2xl">•</span>
+                <span
+                  className={`px-2 flex w-fit items-center rounded-full text-sm bg-gray-200 ${
+                    employee.status === "Active"
+                      ? "text-green-700"
+                      : "text-red-700"
+                  }`}
+                >
+                  <span className="text-2xl -mt-1">•</span>
                   {employee.status}
                 </span>
               </td>
@@ -221,20 +305,27 @@ export default function RevenueTable() {
                   className={`px-2 py-1 rounded-full text-sm ${
                     employee.deposit === "Paid"
                       ? "bg-green-100 text-green-700"
-                      : "bg-red-100 text-red-700"
+                      : employee.deposit === "Unpaid"
+                      ? "bg-red-100 text-red-700"
+                      : "bg-orange-100 text-orange-700"
                   }`}
                 >
                   {employee.deposit}
                 </span>
                 <p className="text-gray-500 text-sm">
-                  Paid on {employee.paymentDate}
+                  Paid on {formatDate(employee.paymentDate)}
                 </p>
               </td>
-              <td className="py-3 px-3 font-medium">${employee.amount} USD</td>
-              <td className="py-3 px-3 text-blue-600 cursor-pointer">
+              <td className="py-3 px-3 font-medium">
+                <span className="ml-6">${employee.amount}</span> <br />
+                <span className="text-[15px] text-cyan-900 text-right ml-8">
+                  USD
+                </span>
+              </td>
+              <td className="py-3 px-3 text-cyan-900 text-sm cursor-pointer">
                 View More
               </td>
-              <td className="py-3 text-4xl text-gray-900 cursor-pointer ml-4">
+              <td className="py-3 text-4xl text-gray-900 cursor-pointer absolute right-2 w-fit">
                 &#8942;
               </td>
             </tr>

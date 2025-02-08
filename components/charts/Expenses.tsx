@@ -26,7 +26,7 @@ const OperatingExpenses = () => {
   };
 
   return (
-    <div className="bg-white flex items-center border justify-center flex-col max-h-[330px] w-[60%] pb-3 pt-1 px-3 m-2 rounded-[15px]">
+    <div className="bg-white flex items-center justify-center flex-col max-h-[330px] w-[60%] pb-3 pt-1 px-3 m-2 rounded-[15px]">
       <h2 className="text-gray-500 w-full uppercase text-sm font-semibold mb-4 flex items-start">
         Operating Expenses
       </h2>

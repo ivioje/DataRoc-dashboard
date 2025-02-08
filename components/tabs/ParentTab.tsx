@@ -19,13 +19,11 @@ const ParentTab = () => {
           <BusinessMetric />
         </TabsContent>
         <TabsContent value="website">
-          Display content related to Website Performance Metrics here.
+          Website Performance Metrics content.
         </TabsContent>
-        <TabsContent value="user">
-          Display content related to User Behavior Metrics here.
-        </TabsContent>
+        <TabsContent value="user">User Behavior Metrics content.</TabsContent>
         <TabsContent value="future">
-          Display content related to Future Performance Metrics here.
+          Future Performance Metrics content.
         </TabsContent>
       </Tabs>
     </div>

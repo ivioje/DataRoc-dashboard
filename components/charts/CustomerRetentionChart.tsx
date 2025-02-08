@@ -35,7 +35,7 @@ const CustomerRetentionChart = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col border gap-6 p-4 max-h-[330px] w-[40%] bg-white rounded-[15px] m-2">
+    <div className="flex items-center justify-center flex-col gap-6 p-4 max-h-[330px] w-[40%] bg-white rounded-[15px] m-2">
       <h2 className="text-gray-500 w-full uppercase text-sm font-semibold flex items-start mt-14">
         Customer retention rate
       </h2>
