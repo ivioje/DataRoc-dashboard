@@ -1,11 +1,15 @@
 "use client";
 
 import { defaultContextValue, GlobalContextType } from "@/lib/interfaces";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 
 const GlobalContext = createContext<GlobalContextType>(defaultContextValue);
 
-export const GlobalProvider = ({ children }) => {
+interface GlobalProviderProps {
+  children: ReactNode;
+}
+
+export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   const [tab, setTab] = useState(null);
   const [selectedValue, setSelectedValue] = useState("business");
 

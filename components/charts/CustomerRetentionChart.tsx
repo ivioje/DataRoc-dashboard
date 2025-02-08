@@ -21,7 +21,7 @@ const CustomerRetentionChart = () => {
     plugins: {
       legend: {
         display: true,
-        position: "right",
+        position: "right" as const,
         labels: {
           boxWidth: 5,
           boxHeight: 5,

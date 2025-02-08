@@ -5,8 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const DateRangePicker = () => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   return (
     <div className="flex items-center space-x-4">
@@ -57,7 +57,7 @@ const DateRangePicker = () => {
           placeholderText="End Date"
           className="outline-none z-[1] border border-gray-300 p-2 shadow-sm rounded-[10px] pl-10"
           dateFormat="d MMM yyyy"
-          minDate={startDate}
+          minDate={startDate || undefined}
         />
         {endDate && (
           <button
