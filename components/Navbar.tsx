@@ -13,9 +13,9 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <div className="px-14">
-      <nav className="items-center py-8 shadow-sm">
+      <nav className="items-center py-6 shadow-sm">
         <div className="w-full defaultFlex">
-          <Image src={logo} alt="logo" width={100} height={40} />
+          <Image src={logo} alt="logo" width={90} height={40} />
           <div className="defaultFlex w-[15%] ">
             <SearchIcon size={20} />
             <BellIcon size={20} />
@@ -23,8 +23,8 @@ const Navbar = () => {
               <Image
                 src="https://static.vecteezy.com/system/resources/thumbnails/036/594/092/small_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
                 alt="User"
-                width={40}
-                height={40}
+                width={38}
+                height={38}
                 className="rounded-full"
               />
             </div>
@@ -33,7 +33,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="py-8 w-full defaultFlex">
+      <div className="py-6 w-full defaultFlex">
         <Link
           href="https://www.essen.com/"
           target="blank"

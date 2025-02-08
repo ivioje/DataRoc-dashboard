@@ -26,14 +26,14 @@ const OperatingExpenses = () => {
   };
 
   return (
-    <div className="bg-white flex items-center border justify-center flex-col max-h-[350px] w-[60%] pb-3 pt-1 px-3 m-2 rounded-[15px]">
+    <div className="bg-white flex items-center border justify-center flex-col max-h-[330px] w-[60%] pb-3 pt-1 px-3 m-2 rounded-[15px]">
       <h2 className="text-gray-500 w-full uppercase text-sm font-semibold mb-4 flex items-start">
         Operating Expenses
       </h2>
       <div className="flex w-full">
-        <div className="h-[250px] relative w-[40%]">
+        <div className="h-[220px] relative w-[40%]">
           <Doughnut data={data} options={options} />
-          <div className="absolute top-[45%] left-20 text-2xl font-bold text-gray-700">
+          <div className="absolute top-[45%] left-[60px] text-2xl font-bold text-gray-700">
             120,000
           </div>
         </div>

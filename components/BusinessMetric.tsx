@@ -7,11 +7,11 @@ import RevenueTable from "./RevenueTable";
 
 const BusinessMetric = () => {
   return (
-    <div className="my-2">
+    <div className="my-1">
       {/**cards */}
       <div className="flex items-center justify-center bg-white rounded">
         {CardStat.map((card) => (
-          <div key={card.id} className="py-3">
+          <div key={card.id} className="py-2">
             <Card
               title={card.title}
               figure={card.figure}

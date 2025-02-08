@@ -89,7 +89,7 @@ export const employees = [
     id: 2,
     name: "Anika Rhiel Madsen",
     email: "example@email.com",
-    status: "Active",
+    status: "Inctive",
     deposit: "Overdue",
     amount: 300,
     paymentDate: "15/APR/2020",

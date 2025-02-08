@@ -1,19 +1,32 @@
 "use client";
 import { useState } from "react";
-import { Search } from "lucide-react";
+import { Filter, Search } from "lucide-react";
 import { employees } from "@/lib/data";
 import ButtonComponent from "./Button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  RadioGroup,
+} from "@radix-ui/react-dropdown-menu";
 
 export default function RevenueTable() {
   const [search, setSearch] = useState("");
   const [isActive, setIsActive] = useState("All");
   const [filteredUsers, setFilteredUsers] = useState(employees);
-  const [selectedFilter, setSelectedFilter] = useState("Default");
+  const [sortBy, setSortBy] = useState("Default");
+  const [userType, setUserType] = useState("All");
 
   const filterUsers = (filter: string) => {
     if (filter === "All") {
       setIsActive("All");
       return setFilteredUsers([...employees]);
+    }
+    if (filter === "Active") {
+      setIsActive("Active");
+      return setFilteredUsers(
+        employees.filter((employee) => employee.status === filter)
+      );
     }
     setFilteredUsers(
       employees.filter((employee) => employee.deposit === filter)
@@ -22,7 +35,7 @@ export default function RevenueTable() {
   };
 
   return (
-    <div className="p-6 my-10">
+    <div className="p-6 my-5">
       <h2 className="text-gray-500 w-full uppercase text-sm font-semibold mb-4 flex items-start">
         Revenue Per Employee
       </h2>
@@ -72,12 +85,82 @@ export default function RevenueTable() {
       </div>
 
       <div className="relative flex items-center justify-between py-2 rounded-md w-full mt-8 mb-1">
-        <div className="flex items-center w-full">
-          <div className="bg-white">
-            <input type="radio" id="default" name="filter" value="Default" />
-            <label htmlFor="default">Default</label>
-            <br />
-          </div>
+        <div className="flex items-center w-full relative">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <div className="flex items-center space-x-2 mr-3 border border-[#CFFAFE] p-2 rounded-[5px]">
+                <Filter size={20} /> <span>Filter</span>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-white min-w-[220px] px-2 py-3 shadow-md rounded-[10px] absolute top-2 -left-10">
+              <p className="text-sm font-light uppercase mb-2 text-[#6E6893]">
+                Sort By:
+              </p>
+              <RadioGroup
+                value={sortBy}
+                onValueChange={setSortBy}
+                className="space-y-2"
+              >
+                {[
+                  "Default",
+                  "First Name",
+                  "Last Name",
+                  "Due Date",
+                  "Last Login",
+                ].map((option) => (
+                  <label
+                    key={option}
+                    className="flex items-center justify-between hover:bg-purple-50 p-[2px] cursor-pointer"
+                  >
+                    <span>{option}</span>
+                    <input
+                      type="radio"
+                      name="sortBy"
+                      value={option}
+                      checked={sortBy === option}
+                      onChange={() => setSortBy(option)}
+                      onClick={() => filterUsers(option)}
+                      className="hidden peer appearance-none"
+                    />
+                    <div className="w-4 h-4 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
+                      <div className="w-[5px] h-[5px] bg-white rounded-full"></div>
+                    </div>
+                  </label>
+                ))}
+              </RadioGroup>
+
+              <div className="my-3 border-t"></div>
+
+              <p className="text-sm font-light uppercase mb-2 text-[#6E6893]">
+                Users:
+              </p>
+              <RadioGroup
+                value={isActive}
+                onValueChange={setIsActive}
+                className="space-y-2"
+              >
+                {["All", "Active", "Inactive"].map((option) => (
+                  <label
+                    key={option}
+                    className="flex items-center justify-between hover:bg-purple-50 p-[2px] cursor-pointer"
+                  >
+                    <span>{option}</span>
+                    <input
+                      type="radio"
+                      name="isActive"
+                      value={option}
+                      checked={isActive === option}
+                      onChange={() => setIsActive(option)}
+                      className="hidden peer appearance-none"
+                    />
+                    <div className="w-4 h-4 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
+                      <div className="w-[5px] h-[5px] bg-white rounded-full"></div>
+                    </div>
+                  </label>
+                ))}
+              </RadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <div className="flex items-center w-[40%] relative bg-[#ECFEFF]">
             <Search size={25} className="text-gray-800 absolute mx-3" />
             <input
