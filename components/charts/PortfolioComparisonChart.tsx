@@ -95,7 +95,7 @@ const PortfolioComparisonChart = () => {
         pointLabels: {
           font: {
             size: 12,
-            weight: "600",
+            weight: 600,
           },
           color: "#555",
         },
@@ -112,7 +112,7 @@ const PortfolioComparisonChart = () => {
   };
 
   // Toggle dataset visibility
-  const toggleDataset = (index) => {
+  const toggleDataset = (index: number) => {
     const newVisibleDatasets = [...visibleDatasets];
     newVisibleDatasets[index] = !newVisibleDatasets[index];
     setVisibleDatasets(newVisibleDatasets);
@@ -139,11 +139,10 @@ const PortfolioComparisonChart = () => {
                 }}
               ></div>
               <div
-                className="w-10 h-1"
+                className="w-10 h-1 -ml-2"
                 style={{
                   backgroundColor: dataset.borderColor,
                   opacity: visibleDatasets[index] ? 1 : 0.5,
-                  marginLeft: visibleDatasets[index] ? "-4px" : "0px",
                 }}
               ></div>
             </div>

@@ -54,9 +54,12 @@ const MonthlyRecurringRevenueChart = () => {
         max: 125000,
         ticks: {
           stepSize: 25000,
-          callback: function (value) {
-            if (value === 0) return "0";
-            return value / 1000 + "k";
+          callback: function (tickValue: string | number) {
+            if (typeof tickValue === "number") {
+              if (tickValue === 0) return "0";
+              return tickValue / 1000 + "k";
+            }
+            return tickValue;
           },
         },
         grid: {
