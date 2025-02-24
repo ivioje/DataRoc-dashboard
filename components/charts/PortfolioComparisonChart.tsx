@@ -120,7 +120,7 @@ const PortfolioComparisonChart = () => {
 
   const CustomLegend = () => {
     return (
-      <div className="flex justify-center w-full mb-6 mt-2 flex-wrap gap-4">
+      <div className="flex justify-center w-full mb-1 mt-2 flex-wrap gap-4">
         {originalData.datasets.map((dataset, index) => (
           <div
             key={index}
@@ -129,7 +129,7 @@ const PortfolioComparisonChart = () => {
           >
             <div className="flex items-center">
               <div
-                className="w-6 h-6 rounded-full flex items-center justify-center"
+                className="w-4 h-4 rounded-full flex items-center justify-center"
                 style={{
                   backgroundColor: visibleDatasets[index]
                     ? dataset.borderColor
@@ -139,10 +139,11 @@ const PortfolioComparisonChart = () => {
                 }}
               ></div>
               <div
-                className="w-12 h-1 -ml-2"
+                className="w-10 h-1"
                 style={{
                   backgroundColor: dataset.borderColor,
                   opacity: visibleDatasets[index] ? 1 : 0.5,
+                  marginLeft: visibleDatasets[index] ? "-4px" : "0px",
                 }}
               ></div>
             </div>
@@ -161,7 +162,7 @@ const PortfolioComparisonChart = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col max-w-fit w-fit gap-2 p-6 bg-white rounded-[15px] mx-2 mt-12">
+    <div className="flex items-center justify-center flex-col max-w-fit w-fit gap-2 px-6 py-3 bg-white rounded-[15px] mx-2 mt-12">
       <h2 className="text-gray-500 w-full uppercase text-sm font-semibold flex items-start bg-white">
         DEBT TO EQUITY RATIO
       </h2>
