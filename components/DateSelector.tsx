@@ -1,6 +1,4 @@
 "use client";
-import { MiddlewareReturn } from "@floating-ui/core";
-import { MiddlewareState } from "@floating-ui/dom";
 import { CalendarDaysIcon } from "lucide-react";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
