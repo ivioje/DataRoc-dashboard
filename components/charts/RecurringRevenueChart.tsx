@@ -46,7 +46,7 @@ const MonthlyRecurringRevenueChart = () => {
           display: true,
           text: "Amount",
           font: {
-            size: 16,
+            size: 14,
           },
           color: "#666",
         },
@@ -76,7 +76,7 @@ const MonthlyRecurringRevenueChart = () => {
           display: true,
           text: "Time",
           font: {
-            size: 16,
+            size: 14,
           },
           color: "#666",
         },
@@ -105,12 +105,14 @@ const MonthlyRecurringRevenueChart = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col gap-6 px-2 py-4 max-w-fit max-h-[280px] bg-white rounded-[15px] mx-2 mt-10">
-      <h2 className="text-gray-500 w-full uppercase text-sm font-semibold flex items-start bg-white">
-        MONTHLY RECURRING REVENUE
-      </h2>
-      <div className="h-[300px] w-full">
-        <Line data={data} options={options} className="h-[280px] w-full" />
+    <div className="bg-white border border-white rounded-[8px] mx-2 p-3">
+      <div className="flex items-center justify-center flex-col py-2 max-w-fit max-h-[280px] bg-white rounded-[15px]">
+        <h2 className="text-gray-500 w-full text-[12px] font-semibold flex items-start mb-4">
+          MONTHLY RECURRING REVENUE
+        </h2>
+        <div className="h-[200px] w-full">
+          <Line data={data} options={options} className="h-[200px] w-full" />
+        </div>
       </div>
     </div>
   );

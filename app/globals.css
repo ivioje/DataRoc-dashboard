@@ -20,7 +20,7 @@ body {
 .options {
   outline: none;
   border: none;
-  @apply font-inter text-lg py-3 my-2 text-gray-700 font-medium;
+  @apply font-inter py-2 text-base my-2 text-gray-700 font-medium;
 }
 
 .options:hover {

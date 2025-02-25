@@ -5,7 +5,7 @@ const dashboard = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Filter />
-      <div className="px-12">
+      <div className="px-11">
         <ParentTab />
       </div>
     </div>

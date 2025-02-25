@@ -30,8 +30,8 @@ const PortfolioComparisonChart = () => {
       {
         label: "July Portfolio",
         data: [50, 30, 90, 40],
-        backgroundColor: "rgba(99, 125, 255, 0.2)",
-        borderColor: "rgba(99, 125, 255, 1)",
+        backgroundColor: "transparent",
+        borderColor: "rgba(99, 125, 255, .7)",
         pointBackgroundColor: "rgba(99, 125, 255, 1)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
@@ -42,8 +42,8 @@ const PortfolioComparisonChart = () => {
       {
         label: "August Portfolio",
         data: [30, 80, 60, 70],
-        backgroundColor: "rgba(75, 192, 150, 0.2)",
-        borderColor: "rgba(75, 192, 150, 1)",
+        backgroundColor: "transparent",
+        borderColor: "rgba(75, 192, 150, .7)",
         pointBackgroundColor: "rgba(75, 192, 150, 1)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
@@ -54,8 +54,8 @@ const PortfolioComparisonChart = () => {
       {
         label: "September Portfolio",
         data: [80, 40, 50, 30],
-        backgroundColor: "rgba(255, 159, 64, 0.2)",
-        borderColor: "rgba(255, 159, 64, 1)",
+        backgroundColor: "transparent",
+        borderColor: "rgba(255, 159, 64, .7)",
         pointBackgroundColor: "rgba(255, 159, 64, 1)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
@@ -90,7 +90,7 @@ const PortfolioComparisonChart = () => {
           backdropColor: "transparent",
         },
         grid: {
-          color: "rgba(0, 0, 0, 0.1)",
+          color: "rgba(0, 0, 0, 0.2)",
         },
         pointLabels: {
           font: {
@@ -120,7 +120,7 @@ const PortfolioComparisonChart = () => {
 
   const CustomLegend = () => {
     return (
-      <div className="flex justify-center w-full mb-1 mt-2 flex-wrap gap-4">
+      <div className="flex justify-center w-full mb-1 mt-2 flex-wrap gap-3">
         {originalData.datasets.map((dataset, index) => (
           <div
             key={index}
@@ -129,7 +129,7 @@ const PortfolioComparisonChart = () => {
           >
             <div className="flex items-center">
               <div
-                className="w-4 h-4 rounded-full flex items-center justify-center"
+                className="w-3 h-3 rounded-full flex items-center justify-center"
                 style={{
                   backgroundColor: visibleDatasets[index]
                     ? dataset.borderColor
@@ -139,7 +139,7 @@ const PortfolioComparisonChart = () => {
                 }}
               ></div>
               <div
-                className="w-10 h-1 -ml-2"
+                className="w-5 h-1 rounded -ml-2"
                 style={{
                   backgroundColor: dataset.borderColor,
                   opacity: visibleDatasets[index] ? 1 : 0.5,
@@ -147,7 +147,7 @@ const PortfolioComparisonChart = () => {
               ></div>
             </div>
             <span
-              className="text-sm"
+              className="text-[12px]"
               style={{
                 color: visibleDatasets[index] ? "#555" : "#999",
               }}
@@ -161,14 +161,14 @@ const PortfolioComparisonChart = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col max-w-fit w-fit gap-2 px-6 py-3 bg-white rounded-[15px] mx-2 mt-12">
-      <h2 className="text-gray-500 w-full uppercase text-sm font-semibold flex items-start bg-white">
+    <div className="flex items-center justify-center flex-col max-w-fit w-fit gap-2 px-3 py-3 bg-white rounded-[7px] mx-2 mt-4">
+      <h2 className="text-gray-500 mb-2 w-full uppercase text-[12px] font-semibold flex items-start">
         DEBT TO EQUITY RATIO
       </h2>
 
       <CustomLegend />
 
-      <div className="h-[400px] w-full">
+      <div className="h-[280px] w-auto">
         <Radar
           ref={chartRef}
           data={data}

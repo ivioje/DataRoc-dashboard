@@ -1,19 +1,19 @@
 import React from "react";
 import { CardStat } from "@/lib/data";
-import Card from "./Card";
-import OperatingExpenses from "./charts/Expenses";
-import CustomerRetentionChart from "./charts/CustomerRetentionChart";
-import RevenueTable from "./RevenueTable";
-import MonthlyRecurringRevenueChart from "./charts/RecurringRevenueChart";
-import PortfolioComparisonChart from "./charts/PortfolioComparisonChart";
+import Card from "../Card";
+import OperatingExpenses from "../charts/Expenses";
+import CustomerRetentionChart from "../charts/CustomerRetentionChart";
+import RevenueTable from "../RevenueTable";
+import MonthlyRecurringRevenueChart from "../charts/RecurringRevenueChart";
+import PortfolioComparisonChart from "../charts/PortfolioComparisonChart";
 
 const BusinessMetric = () => {
   return (
     <div className="flex">
-      <div className="my-1 max-w-[70%]">
+      <div className="my-1 max-w-[75%]">
         {/**cards */}
         <div className="flex items-center justify-center bg-white rounded">
-          {CardStat.map((card) => (
+          {CardStat.map((card, index) => (
             <div key={card.id} className="py-2">
               <Card
                 title={card.title}
@@ -21,6 +21,7 @@ const BusinessMetric = () => {
                 type={card.type}
                 value={card.value}
                 caption={card.caption}
+                index={index}
               />
             </div>
           ))}

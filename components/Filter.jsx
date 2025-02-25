@@ -7,12 +7,14 @@ import ButtonComponent from "./Button";
 const Filter = () => {
   return (
     <div>
-      <div className="flex items-center justify-between px-[47px] py-2">
-        <Dropdown />
-        <div className="flex items-center">
+      <div className="flex items-center justify-between px-10 py-2 w-full">
+        <div className="">
+          <Dropdown />
+        </div>
+        <div className="flex items-center w-[60%]">
           <DateRangePicker />
           <div className="flex items-center justify-center px-6">
-            <FilterIcon />
+            <FilterIcon size={21} className="mr-1" />
             <span>Filter</span>
           </div>
           <ButtonComponent text="New AI Metric" />

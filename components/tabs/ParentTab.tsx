@@ -3,7 +3,7 @@ import { Tabs } from "@radix-ui/react-tabs";
 import React from "react";
 import { TabsContent } from "../ui/tabs";
 import { useGlobalContext } from "../providers";
-import BusinessMetric from "../BusinessMetric";
+import BusinessMetric from "./BusinessMetric";
 
 const ParentTab = () => {
   const { selectedValue, handleSelectChange } = useGlobalContext();

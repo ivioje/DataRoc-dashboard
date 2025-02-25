@@ -18,9 +18,9 @@ export default function SelectLikeTab() {
     <div className="relative">
       <Select value={selectedValue} onValueChange={handleSelectChange}>
         <SelectTrigger
-          className={`border-none shadow-none bg-none outline-none text-lg text-gray-600 font-medium`}
+          className="border-none shadow-none bg-none outline-none text-base text-gray-600 font-medium flex items-center cursor-pointer"
         >
-          <Briefcase size={20} className="font-extralight text-gray-400 mr-2" />
+          <Briefcase size={18} className="font-extralight text-gray-400 mr-2" />
           {selectedValue === "business"
             ? "Business Performance Metrics"
             : selectedValue === "website"
@@ -32,7 +32,7 @@ export default function SelectLikeTab() {
             <ChevronDown />
           </div>
         </SelectTrigger>
-        <SelectContent className={`bg-white w-[350px] shadow-sm border-none `}>
+        <SelectContent className={`bg-white shadow-sm border-none `}>
           <SelectItem className={`options ${textColorClass}`} value="business">
             Business Performance Metrics
           </SelectItem>

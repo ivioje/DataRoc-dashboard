@@ -35,14 +35,14 @@ const CustomerRetentionChart = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col gap-6 p-4 max-h-[330px] w-[40%] bg-white rounded-[15px] m-2">
-      <h2 className="text-gray-500 w-full uppercase text-sm font-semibold flex items-start mt-14">
+    <div className="flex items-center justify-center flex-col gap-6 px-4 py-2 max-h-[250px] w-[40%] bg-white rounded-[15px] my-2 ml-2">
+      <h2 className="text-gray-500 w-full uppercase text-[12px] font-semibold flex items-start">
         Customer retention rate
       </h2>
 
       {/* Doughnut Chart */}
       <div className="relative flex items-center justify-center">
-        <div className="h-[300px] w-[300px] -mt-5">
+        <div className="h-[160px] w-[300px] -mt-5">
           <Doughnut
             data={data}
             options={options}
