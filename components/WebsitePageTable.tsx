@@ -20,31 +20,31 @@ const WebsiteTopPagesTable = () => {
                 <tr className="text-left text-sm">
                   <th className="pr-8 py-3 font-medium text-gray-600">
                     <div className="flex items-center">
-                      <CgBrowser />
+                      <CgBrowser size={17} className='mr-2' />
                       Pages
                     </div>
                   </th>
                   <th className="px-4 py-3 font-medium text-gray-600 text-right">
                     <div className="flex items-center justify-end">
-                      <GoPerson />
+                      <GoPerson size={17} className='mr-2' />
                       Sessions
                     </div>
                   </th>
                   <th className="px-4 py-3 font-medium text-gray-600 text-right">
                     <div className="flex items-center justify-end">
-                     <TbBrowserMinus />
+                     <TbBrowserMinus size={17} className='mr-2' />
                       Bounce Rate
                     </div>
                   </th>
                   <th className="px-4 py-3 font-medium text-gray-600 text-right">
                     <div className="flex items-center justify-end">
-                     <HiOutlineCursorClick />
+                     <HiOutlineCursorClick size={18} className='mr-2' />
                       CTR
                     </div>
                   </th>
                   <th className="px-4 py-3 font-medium text-gray-600 text-right">
                     <div className="flex items-center justify-end">
-                     <IoPricetagOutline />
+                     <IoPricetagOutline size={17} className='mr-2' />
                       Goal Conv. Rate
                     </div>
                   </th>
@@ -52,20 +52,20 @@ const WebsiteTopPagesTable = () => {
               </thead>
               <tbody>
                 {websitePageData.map((page, index) => (
-                  <tr key={index} className="border-t border-gray-100">
-                    <td className="pr-8 py-4">
+                  <tr key={index} className="border-t border-gray-100 text-[13px]">
+                    <td className="pr-8 py-3">
                       <span className={page.pathColor}>{page.path}</span>
                     </td>
-                    <td className="px-4 py-4 text-right">
+                    <td className="px-4 py-3 text-right">
                       {page.sessions.toLocaleString()}
                     </td>
-                    <td className="px-4 py-4 text-right">
+                    <td className="px-4 py-3 text-right">
                       {page.bounceRate}
                     </td>
-                    <td className="px-4 py-4 text-right">
+                    <td className="px-4 py-3 text-right">
                       {page.ctr}
                     </td>
-                    <td className="px-4 py-4 text-right">
+                    <td className="px-4 py-3 text-right">
                       <span className={`px-3 py-1 rounded-md ${page.convRateColor}`}>
                         {page.goalConvRate}
                       </span>

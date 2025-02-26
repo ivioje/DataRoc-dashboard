@@ -206,7 +206,7 @@ export const websitePageData = [
     ctr: '66%', 
     goalConvRate: '40%',
     pathColor: 'text-blue-500',
-    convRateColor: 'bg-yellow-100'
+    convRateColor: 'bg-orange-100'
   },
   { 
     path: '/events', 
@@ -215,7 +215,7 @@ export const websitePageData = [
     ctr: '25%', 
     goalConvRate: '48%',
     pathColor: 'text-blue-500',
-    convRateColor: 'bg-yellow-100'
+    convRateColor: 'bg-orange-100'
   },
   { 
     path: '/whats-new', 
