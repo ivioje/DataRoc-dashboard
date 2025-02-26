@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Filter, Search } from "lucide-react";
 import { employees, titles } from "@/lib/data";
-import ButtonComponent from "./Button";
+import ButtonComponent from "./shared/Button";
 import {
   DropdownMenu,
   DropdownMenuContent,

@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from "./Dropdown";
+import Dropdown from "../Dropdown";
 import DateRangePicker from "./DateSelector";
 import { FilterIcon } from "lucide-react";
 import ButtonComponent from "./Button";

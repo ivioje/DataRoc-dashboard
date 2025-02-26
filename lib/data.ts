@@ -1,3 +1,5 @@
+import { Title } from "./interfaces";
+
 export const CardStat = [
   {
     id: "0",
@@ -75,11 +77,6 @@ export const ExpensesChartData = [
   },
 ];
 
-export interface Title {
-  Paid: string;
-  Unpaid: string;
-  Overdue: string;
-}
 export const titles: Title = {
   Paid: "Payable",
   Unpaid: "Unpaid",
@@ -124,3 +121,46 @@ export const employees = [
     paymentDate: "2021/10/15",
   },
 ];
+
+export const websiteMetricsData = [
+  {
+    title: "PAGE VIEWS",
+    value: "700",
+    unit: "",
+    change: 20,
+    changeType: "increase",
+    comparedTo: "compared to last week"
+  },
+  {
+    title: "SESSION DURATION",
+    value: "25",
+    unit: "minutes",
+    change: 10,
+    changeType: "decrease",
+    comparedTo: "compared to last week"
+  },
+  {
+    title: "BOUNCE RATE",
+    value: "80%",
+    unit: "",
+    change: 2,
+    changeType: "decrease",
+    comparedTo: "compared to last week"
+  },
+  {
+    title: "UNIQUE VISITORS",
+    value: "89",
+    unit: "",
+    change: 20,
+    changeType: "increase",
+    comparedTo: "compared to last week"
+  },
+  {
+    title: "CONVERSION RATE",
+    value: "10%",
+    unit: "",
+    change: 15,
+    changeType: "increase",
+    comparedTo: "compared to last week"
+  }
+]

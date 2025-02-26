@@ -4,6 +4,7 @@ import React from "react";
 import { TabsContent } from "../ui/tabs";
 import { useGlobalContext } from "../providers";
 import BusinessMetric from "./BusinessMetric";
+import WebsitePerformanceMetrics from "./WebsitePerformanceMetrics.tab";
 
 const ParentTab = () => {
   const { selectedValue, handleSelectChange } = useGlobalContext();
@@ -13,13 +14,13 @@ const ParentTab = () => {
       <Tabs
         value={selectedValue}
         onValueChange={handleSelectChange}
-        className="mt-4"
+        className="mt-3"
       >
         <TabsContent value="business">
           <BusinessMetric />
         </TabsContent>
         <TabsContent value="website">
-          Website Performance Metrics content.
+          <WebsitePerformanceMetrics />
         </TabsContent>
         <TabsContent value="user">User Behavior Metrics content.</TabsContent>
         <TabsContent value="future">

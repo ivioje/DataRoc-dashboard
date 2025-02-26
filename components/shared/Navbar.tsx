@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import logo from "../assets/logo.svg";
+import logo from "../../assets/logo.png";
 import Link from "next/link";
 
 const Navbar = () => {

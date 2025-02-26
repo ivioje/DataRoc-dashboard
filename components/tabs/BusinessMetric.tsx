@@ -1,6 +1,6 @@
 import React from "react";
 import { CardStat } from "@/lib/data";
-import Card from "../Card";
+import Card from "../cards/Card";
 import OperatingExpenses from "../charts/Expenses";
 import CustomerRetentionChart from "../charts/CustomerRetentionChart";
 import RevenueTable from "../RevenueTable";

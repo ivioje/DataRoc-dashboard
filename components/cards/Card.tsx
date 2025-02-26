@@ -10,7 +10,7 @@ const Card = ({index, ...props}: CardInterface & { index: number }) => {
         <h4 className="uppercase text-gray-500 font-semibold text-[12px]">
           {props.title}
         </h4>
-        <span className="bg-gray-50 rounded-full px-1 py-1">
+        <span className="bg-gray-100 rounded-full px-1 py-1">
           {props.type === "increase" ? (
             <ArrowUp size={18} className="text-lime-500" />
           ) : (

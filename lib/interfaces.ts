@@ -15,3 +15,9 @@ export const defaultContextValue: GlobalContextType = {
   selectedValue: "",
   handleSelectChange: () => {},
 };
+
+export interface Title {
+  Paid: string;
+  Unpaid: string;
+  Overdue: string;
+}

@@ -1,4 +1,4 @@
-import Filter from "@/components/Filter";
+import Filter from "@/components/shared/Filter";
 import ParentTab from "@/components/tabs/ParentTab";
 
 const dashboard = () => {
