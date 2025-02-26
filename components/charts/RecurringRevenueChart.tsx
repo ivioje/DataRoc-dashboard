@@ -106,11 +106,11 @@ const MonthlyRecurringRevenueChart = () => {
 
   return (
     <div className="bg-white border border-white rounded-[8px] mx-2 p-3">
-      <div className="flex items-center justify-center flex-col py-2 max-w-fit max-h-[280px] bg-white rounded-[15px]">
+      <div className="flex items-center justify-center flex-col py-2 max-w-fit max-h-[300px] bg-white rounded-[15px]">
         <h2 className="text-gray-500 w-full text-[12px] font-semibold flex items-start mb-4">
           MONTHLY RECURRING REVENUE
         </h2>
-        <div className="h-[200px] w-full">
+        <div className="h-[200px] w-full mt-5">
           <Line data={data} options={options} className="h-[200px] w-full" />
         </div>
       </div>

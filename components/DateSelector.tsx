@@ -26,7 +26,7 @@ const DateRangePicker = () => {
             startDate={startDate}
             endDate={endDate}
             placeholderText="Start Date"
-            className="outline-none z-[1] border w-full border-gray-300 p-2 shadow-sm rounded-[10px] pl-10"
+            className="outline-none z-[1] border w-full border-gray-300 p-2 shadow-sm rounded-[10px] pl-10 placeholder:text-sm"
             dateFormat="d MMM"
            portalId="root"
           />
@@ -56,7 +56,7 @@ const DateRangePicker = () => {
             startDate={startDate}
             endDate={endDate}
             placeholderText="End Date"
-            className="outline-none z-[1] w-full border border-gray-300 p-2 shadow-sm rounded-[10px] pl-10"
+            className="outline-none z-[1] w-full border border-gray-300 p-2 shadow-sm rounded-[10px] pl-10 placeholder:text-sm"
             dateFormat="d MMM yyyy"
             minDate={startDate || undefined}
             portalId="root"

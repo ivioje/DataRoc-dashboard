@@ -92,12 +92,12 @@ export default function RevenueTable() {
   }, [sortBy, search]);
 
   return (
-    <div className="p-6 my-5">
-      <h2 className="text-gray-500 w-full uppercase text-sm font-semibold mb-4 flex items-start">
+    <div className="p-6 mb-5 mt-3">
+      <h2 className="text-gray-500 w-full uppercase text-[12px] font-semibold mb-4 flex items-start">
         Revenue Per Employee
       </h2>
-      <div className="flex justify-between items-center mb-4 border-b border-t-0 border-l-0 border-r-0 border-[#CFFAFE]">
-        <div className="flex font-medium">
+      <div className="flex justify-between items-center mb-3 border-b border-t-0 border-l-0 border-r-0 border-[#CFFAFE]">
+        <div className="flex font-medium text-sm">
           <button
             onClick={() => {
               filterUsers("All");
@@ -144,8 +144,8 @@ export default function RevenueTable() {
         </div>
         <div className="text-cyan-900">
           <span className="text-sm">Total {title}: </span>
-          <span className="font-bold text-lg text-gray-950">${total} </span>
-          <span className="text-lg">USD</span>
+          <span className="font-bold text-[15px] text-gray-950">${total} </span>
+          <span className="text-[15px]">USD</span>
         </div>
       </div>
 
@@ -154,11 +154,11 @@ export default function RevenueTable() {
           <DropdownMenu>
             <DropdownMenuTrigger>
               <div className="flex items-center space-x-2 mr-3 border border-[#CFFAFE] p-2 rounded-[5px]">
-                <Filter size={20} /> <span>Filter</span>
+                <Filter size={18} /> <span className="text-sm">Filter</span>
               </div>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white min-w-[220px] px-2 py-3 shadow-md rounded-[10px] absolute top-2 -left-10 z-30">
-              <p className="text-sm font-light uppercase mb-2 text-[#6E6893]">
+            <DropdownMenuContent className="bg-white min-w-[220px] px-2 py-3 text-sm shadow-md rounded-[10px] absolute top-2 -left-10 z-30">
+              <p className="text-[12px] font-light uppercase mb-2 text-[#6E6893]">
                 Sort By:
               </p>
               <RadioGroup
@@ -184,9 +184,9 @@ export default function RevenueTable() {
                       value={option}
                       checked={sortBy === option}
                       onChange={() => setSortBy(option)}
-                      className="hidden peer appearance-none"
+                      className="hidden peer appearance-none text-[12px]"
                     />
-                    <div className="w-4 h-4 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
+                    <div className="w-[14px] h-[14px] border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
                       <div className="w-[5px] h-[5px] bg-white rounded-full"></div>
                     </div>
                   </label>
@@ -195,7 +195,7 @@ export default function RevenueTable() {
 
               <div className="my-3 border-t"></div>
 
-              <p className="text-sm font-light uppercase mb-2 text-[#6E6893]">
+              <p className="text-[12px] font-light uppercase mb-2 text-[#6E6893]">
                 Users:
               </p>
               <RadioGroup
@@ -215,9 +215,9 @@ export default function RevenueTable() {
                       value={option}
                       checked={isActive === option}
                       onChange={() => filterUsers(option)}
-                      className="hidden peer appearance-none"
+                      className="hidden peer appearance-none text-[12px]"
                     />
-                    <div className="w-4 h-4 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
+                    <div className="w-[14px] h-[14px] border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
                       <div className="w-[5px] h-[5px] bg-white rounded-full"></div>
                     </div>
                   </label>
@@ -226,11 +226,11 @@ export default function RevenueTable() {
             </DropdownMenuContent>
           </DropdownMenu>
           <div className="flex items-center w-[40%] relative bg-[#ECFEFF]">
-            <Search size={25} className="text-gray-800 absolute mx-3" />
+            <Search size={20} className="text-gray-800 absolute mx-3" />
             <input
               type="text"
               placeholder="Search Users by Name, Email or Date"
-              className="outline-none bg-[#ECFEFF] w-full ml-10 rounded py-2 px-2 placeholder:text-gray-600 placeholder:text-sm"
+              className="outline-none bg-[#ECFEFF] w-full ml-8 rounded py-2 px-2 placeholder:text-gray-600 placeholder:text-sm"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -241,26 +241,26 @@ export default function RevenueTable() {
 
       <table className="w-full text-left border-collapse z-10">
         <thead>
-          <tr className="bg-[#ECFEFF] border border-r-0 border-l-0 text-cyan-900">
-            <th className="py-2 px-3">
+          <tr className="bg-[#ECFEFF] border border-r-0 border-l-0 text-cyan-900 text-[13px]">
+            <th className="py-[6px] px-3">
               <input type="checkbox" className="w-4 h-4" />
             </th>
-            <th className="py-2 px-3"></th>
-            <th className="py-2 px-3 font-medium uppercase text-sm text-gray-700">
+            <th className="py-[6px] px-3"></th>
+            <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
               Employee Name
             </th>
-            <th className="py-2 px-3 font-medium uppercase text-sm text-gray-700">
+            <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
               Employee Status
             </th>
-            <th className="py-2 px-3 font-medium uppercase text-sm text-gray-700">
+            <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
               Deposit Status
             </th>
-            <th className="py-2 px-3 font-medium uppercase text-sm text-gray-700">
+            <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
               Amount
             </th>
-            <th className="py-2 px-3 font-medium uppercase text-sm text-gray-700"></th>
-            <th className="py-2 px-3 font-medium uppercase text-sm text-gray-700"></th>
-            <th className="py-3 text-4xl text-gray-900 cursor-pointer">
+            <th className="py-[6px] px-3 font-medium uppercase text-gray-700"></th>
+            <th className="py-[6px] px-3 font-medium uppercase text-gray-700"></th>
+            <th className="py-2 text-2xl pr-2 text-gray-900 cursor-pointer">
               &#8942;
             </th>
           </tr>
@@ -278,19 +278,19 @@ export default function RevenueTable() {
               key={employee.id}
               className="border-b transition-transform duration-300 relative"
             >
-              <td className="py-3 px-3">
+              <td className="py-2 px-3">
                 <input type="checkbox" className="w-4 h-4" />
               </td>
-              <td className="py-3 px-3 text-cyan-900">
+              <td className="py-2 px-3 text-cyan-900">
                 <IoIosArrowDropdown />
               </td>
-              <td className="py-3 px-3">
-                <p className="font-medium">{employee.name}</p>
-                <p className="text-gray-500 text-sm">{employee.email}</p>
+              <td className="py-2 px-3">
+                <p className="font-medium text-sm">{employee.name}</p>
+                <p className="text-gray-500 text-[13px]">{employee.email}</p>
               </td>
-              <td className="py-3 px-3">
+              <td className="py-2 px-3">
                 <span
-                  className={`px-2 flex w-fit items-center rounded-full text-sm bg-gray-200 ${
+                  className={`px-2 flex w-fit items-center rounded-full text-[12px] bg-gray-200 ${
                     employee.status === "Active"
                       ? "text-green-700"
                       : "text-red-700"
@@ -300,9 +300,9 @@ export default function RevenueTable() {
                   {employee.status}
                 </span>
               </td>
-              <td className="py-3 px-3">
+              <td className="py-2 px-3">
                 <span
-                  className={`px-2 py-1 rounded-full text-sm ${
+                  className={`px-2 py-1 rounded-full text-[12px] ${
                     employee.deposit === "Paid"
                       ? "bg-green-100 text-green-700"
                       : employee.deposit === "Unpaid"
@@ -316,16 +316,16 @@ export default function RevenueTable() {
                   Paid on {formatDate(employee.paymentDate)}
                 </p>
               </td>
-              <td className="py-3 px-3 font-medium">
-                <span className="ml-6">${employee.amount}</span> <br />
-                <span className="text-[15px] text-cyan-900 text-right ml-8">
+              <td className="py-2 px-3 font-medium">
+                <span className="ml-6 text-[15px]">${employee.amount}</span> <br />
+                <span className="text-sm text-cyan-900 text-right ml-8">
                   USD
                 </span>
               </td>
-              <td className="py-3 px-3 text-cyan-900 text-sm cursor-pointer">
+              <td className="py-2 px-3 text-cyan-900 text-sm cursor-pointer">
                 View More
               </td>
-              <td className="py-3 text-4xl text-gray-900 cursor-pointer absolute right-2 w-fit">
+              <td className="py-2 text-3xl text-gray-900 cursor-pointer absolute right-2 w-fit">
                 &#8942;
               </td>
             </tr>

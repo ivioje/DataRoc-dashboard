@@ -10,7 +10,7 @@ import PortfolioComparisonChart from "../charts/PortfolioComparisonChart";
 const BusinessMetric = () => {
   return (
     <div className="flex">
-      <div className="my-1 max-w-[75%]">
+      <div className="my-1 min-w-[70%]">
         {/**cards */}
         <div className="flex items-center justify-center bg-white rounded">
           {CardStat.map((card, index) => (
@@ -36,7 +36,7 @@ const BusinessMetric = () => {
           <RevenueTable />
         </div>
       </div>
-      <div className="max-w-[30%]">
+      <div className="min-w-[10%]">
         <MonthlyRecurringRevenueChart />
         <PortfolioComparisonChart />
       </div>
