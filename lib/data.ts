@@ -164,3 +164,75 @@ export const websiteMetricsData = [
     comparedTo: "compared to last week"
   }
 ]
+
+ export const conversionChartData = [
+    { id: 1, type: 'Mobile', figure: 88, bg: 'rgb(101, 127, 255)' },
+    { id: 2, type: 'Desktop', figure: 10, bg: 'rgb(111, 207, 151)' },
+    { id: 3, type: 'Tablet', figure: 2, bg: 'rgb(255, 187, 92)' },
+]
+
+export const recurringChartData = [
+  { name: 'Figma', revenue2023: 52 },
+  { name: 'Sketch', revenue2023: 68 },
+  { name: 'XD', revenue2023: 65 },
+  { name: 'Photoshop', revenue2023: 78 },
+  { name: 'Illustrator', revenue2023: 65 },
+  { name: 'AfterEffect', revenue2023: 36 }
+];
+
+export const websitePageData = [
+  { 
+    path: '/landing-page', 
+    sessions: 23000, 
+    bounceRate: '0%', 
+    ctr: '10.20%', 
+    goalConvRate: '100%',
+    pathColor: 'text-blue-500',
+    convRateColor: 'bg-green-100'
+  },
+  { 
+    path: '/about-us', 
+    sessions: 11203, 
+    bounceRate: '35%', 
+    ctr: '50.8%', 
+    goalConvRate: '20%',
+    pathColor: 'text-blue-500',
+    convRateColor: 'bg-gray-200'
+  },
+  { 
+    path: '/buy-products', 
+    sessions: 45000, 
+    bounceRate: '15%', 
+    ctr: '66%', 
+    goalConvRate: '40%',
+    pathColor: 'text-blue-500',
+    convRateColor: 'bg-yellow-100'
+  },
+  { 
+    path: '/events', 
+    sessions: 56504, 
+    bounceRate: '14.4%', 
+    ctr: '25%', 
+    goalConvRate: '48%',
+    pathColor: 'text-blue-500',
+    convRateColor: 'bg-yellow-100'
+  },
+  { 
+    path: '/whats-new', 
+    sessions: 45986, 
+    bounceRate: '2%', 
+    ctr: '33.49%', 
+    goalConvRate: '80%',
+    pathColor: 'text-blue-500',
+    convRateColor: 'bg-green-100'
+  },
+  { 
+    path: '/get-to-know-us', 
+    sessions: 30462, 
+    bounceRate: '28%', 
+    ctr: '58.6%', 
+    goalConvRate: '27%',
+    pathColor: 'text-blue-500',
+    convRateColor: 'bg-gray-200'
+  }
+];

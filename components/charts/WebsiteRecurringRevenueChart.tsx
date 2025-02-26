@@ -1,16 +1,8 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { recurringChartData as data } from '@/lib/data';
 
 const WebsiteRecurringRevenueChart = () => {
-  const data = [
-    { name: 'Figma', revenue2023: 52 },
-    { name: 'Sketch', revenue2023: 68 },
-    { name: 'XD', revenue2023: 65 },
-    { name: 'Photoshop', revenue2023: 78 },
-    { name: 'Illustrator', revenue2023: 65 },
-    { name: 'AfterEffect', revenue2023: 36 }
-  ];
-
   return (
     <div className="bg-white p-3 rounded-[5px] w-full mx-4">
       <h2 className="text-gray-700 text-[12px] font-medium mb-6">MONTHLY RECURRING REVENUE</h2>

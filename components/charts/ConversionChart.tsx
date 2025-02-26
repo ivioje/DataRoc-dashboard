@@ -1,15 +1,10 @@
 import { useEffect, useRef } from 'react';
 import Chart, { ChartConfiguration } from 'chart.js/auto';
+import {conversionChartData as chartData} from '@/lib/data';
 
 const ConversionByDeviceChart = () => {
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstance = useRef<Chart | null>(null);
-
-  const chartData = [
-    { id: 1, type: 'Mobile', figure: 88, bg: 'rgb(101, 127, 255)' },
-    { id: 2, type: 'Desktop', figure: 10, bg: 'rgb(111, 207, 151)' },
-    { id: 3, type: 'Tablet', figure: 2, bg: 'rgb(255, 187, 92)' },
-  ]
 
   useEffect(() => {
     // Destroy existing chart if it exists
@@ -74,7 +69,7 @@ const ConversionByDeviceChart = () => {
   }, []);
 
   return (
-    <div className="w-full px-4 py-2 bg-white rounded-[5px] max-h-[330px] my-4">
+    <div className="w-full px-4 py-2 bg-white rounded-[5px] max-h-[300px] my-3">
     <h3 className="text-gray-600 font-medium text-[12px]">CONVERSION BY DEVICE</h3>
     <div className='flex'>
         <div className='h-[260px] -mt-14'>

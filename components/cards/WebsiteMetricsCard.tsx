@@ -26,7 +26,7 @@ const WebsiteMetricCards = () => {
           key={index} 
           className='px-6'
         >
-          <div className={`py-4 ${index === 2 ? '' : 'border-b border-gray-200'}`}>
+          <div className={`py-[18px] ${index === 2 ? '' : 'border-b border-gray-200'}`}>
             <div className="flex justify-between items-center">
               <h3 className="text-gray-600 font-medium text-[12px]">{metric.title}</h3>
               <div className='bg-gray-100 p-1 rounded-full'>{getChangeIcon(metric.changeType)}</div>
