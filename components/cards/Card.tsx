@@ -23,7 +23,7 @@ const Card = ({index, ...props}: CardInterface & { index: number }) => {
           ? `$${formatNumber(props.figure)}`
           : formatNumber(props.figure)}
       </span>
-      <div className="flex justify-between items-start text-[12px]">
+      <div className="flex justify-between items-start text-[11px]">
         <span
           className={`${
             props.type === "increase" ? "text-lime-500" : "text-red-500"
