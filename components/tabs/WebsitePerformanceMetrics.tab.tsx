@@ -20,7 +20,7 @@ const WebsitePerformanceMetrics = () => {
             </div>
             <WebsiteTopPagesTable />
         </div>
-        <div className='w-[40%] mx-4'>
+        <div className='w-[40%] mx-4 mb-5'>
             <WebsiteRecurringRevenueChart />
         </div>
     </div>

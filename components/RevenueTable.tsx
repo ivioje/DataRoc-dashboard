@@ -239,7 +239,7 @@ export default function RevenueTable() {
         <ButtonComponent text="Download Invoice" />
       </div>
 
-      <table className="w-full text-left border-collapse z-10">
+      <table className="w-full text-left border-collapse z-10 bg-white py-3">
         <thead>
           <tr className="bg-[#ECFEFF] border border-r-0 border-l-0 text-cyan-900 text-[13px]">
             <th className="py-[6px] px-3">

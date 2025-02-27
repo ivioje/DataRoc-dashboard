@@ -236,3 +236,31 @@ export const websitePageData = [
     convRateColor: 'bg-gray-200'
   }
 ];
+
+export const sankeyData = {
+  nodes: [
+    { name: 'Home' },
+    { name: 'About Us' },
+    { name: 'Buy Product' },
+    { name: 'Events' },
+    { name: 'What\'s New' },
+    { name: 'Check Out' },
+    { name: 'Exit' }
+  ],
+  links: [
+    { source: 0, target: 1, value: 23000 },
+    { source: 0, target: 2, value: 45000 },
+    { source: 0, target: 3, value: 55504 },
+    { source: 0, target: 4, value: 45986 },
+    { source: 1, target: 6, value: 11203 },
+    { source: 2, target: 6, value: 10000 },
+    { source: 3, target: 6, value: 7000 },
+    { source: 4, target: 6, value: 8000 },
+    { source: 2, target: 5, value: 18203 },
+  ]
+};
+
+export const aiMetricSuggestions = [
+  { id: 'userPath', name: 'User Path analysis' },
+  { id: 'userConversion', name: 'User conversion analysis' }
+];
