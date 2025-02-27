@@ -15,7 +15,7 @@ To get started with the DataRoc Dashboard, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/DataRoc-dashboard.git
+    git clone https://github.com/ivioje/DataRoc-dashboard.git
     ```
 2. Navigate to the project directory:
     ```bash
