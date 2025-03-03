@@ -2,18 +2,17 @@
 import { Tabs } from "@radix-ui/react-tabs";
 import React from "react";
 import { TabsContent } from "../ui/tabs";
-import { useGlobalContext } from "../providers";
+import { useTabStore } from "@/store/tab-store";
 import BusinessMetric from "./BusinessMetric";
 import WebsitePerformanceMetrics from "./WebsitePerformanceMetrics.tab";
 
 const ParentTab = () => {
-  const { selectedValue, handleSelectChange } = useGlobalContext();
+  const tab = useTabStore((state: any) => state.tab)
   return (
     <div>
-      {/* Tabs Component */}
       <Tabs
-        value={selectedValue}
-        onValueChange={handleSelectChange}
+        value={tab.selectedValue}
+        onValueChange={tab.handleChangeTab}
         className="mt-3"
       >
         <TabsContent value="business">

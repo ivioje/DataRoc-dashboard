@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Radar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useChartStore } from "@/store/chart-store";
 
 ChartJS.register(
   RadialLinearScale,
@@ -22,7 +23,7 @@ ChartJS.register(
 
 const PortfolioComparisonChart = () => {
   const chartRef = useRef(null);
-  const [visibleDatasets, setVisibleDatasets] = useState([true, true, true]);
+  const { visibleDatasets, toggleDataset } = useChartStore();
 
   const originalData = {
     labels: ["ROI", "Volatility", "Tax Efficiency", "Cost"],
@@ -69,9 +70,7 @@ const PortfolioComparisonChart = () => {
   // Filter visible datasets
   const data = {
     ...originalData,
-    datasets: originalData.datasets.filter(
-      (_, index) => visibleDatasets[index]
-    ),
+    datasets: originalData.datasets.filter((_, index) => visibleDatasets[index]),
   };
 
   const options = {
@@ -109,13 +108,6 @@ const PortfolioComparisonChart = () => {
         enabled: true,
       },
     },
-  };
-
-  // Toggle dataset visibility
-  const toggleDataset = (index: number) => {
-    const newVisibleDatasets = [...visibleDatasets];
-    newVisibleDatasets[index] = !newVisibleDatasets[index];
-    setVisibleDatasets(newVisibleDatasets);
   };
 
   const CustomLegend = () => {
@@ -169,12 +161,7 @@ const PortfolioComparisonChart = () => {
       <CustomLegend />
 
       <div className="h-[280px] w-auto mt-5">
-        <Radar
-          ref={chartRef}
-          data={data}
-          options={options}
-          className="h-full w-full"
-        />
+        <Radar ref={chartRef} data={data} options={options} className="h-full w-full" />
       </div>
     </div>
   );

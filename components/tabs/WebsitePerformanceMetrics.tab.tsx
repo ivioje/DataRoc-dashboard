@@ -4,6 +4,7 @@ import MetricCard from '../cards/Metric.cards'
 import ConversionByDeviceChart from '../charts/ConversionChart'
 import WebsiteRecurringRevenueChart from '../charts/WebsiteRecurringRevenueChart'
 import WebsiteTopPagesTable from '../WebsitePageTable'
+import AddMetric from '../AddMetric'
 
 const WebsitePerformanceMetrics = () => {
   return (
@@ -22,6 +23,7 @@ const WebsitePerformanceMetrics = () => {
         </div>
         <div className='w-[40%] mx-4 mb-5'>
             <WebsiteRecurringRevenueChart />
+            <AddMetric />
         </div>
     </div>
   )
