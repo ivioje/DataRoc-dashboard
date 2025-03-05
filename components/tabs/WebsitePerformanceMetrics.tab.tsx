@@ -5,9 +5,15 @@ import ConversionByDeviceChart from '../charts/ConversionChart'
 import WebsiteRecurringRevenueChart from '../charts/WebsiteRecurringRevenueChart'
 import WebsiteTopPagesTable from '../WebsitePageTable'
 import AddMetric from '../AddMetric'
+import { Popover } from '../ui/popover'
+import PopoverComponent from '../Popover'
+import { useModalStore } from '@/store/modal-store'
 
 const WebsitePerformanceMetrics = () => {
+    const { isOpen } = useModalStore();
   return (
+    <div>
+        {isOpen && <PopoverComponent />}
     <div className='flex items-start'>
         <div className='flex flex-col w-[60%]'>
             <div className='flex items-start w-full'>
@@ -25,6 +31,7 @@ const WebsitePerformanceMetrics = () => {
             <WebsiteRecurringRevenueChart />
             <AddMetric />
         </div>
+    </div>
     </div>
   )
 }
