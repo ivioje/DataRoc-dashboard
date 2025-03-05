@@ -6,7 +6,7 @@ const SkeletonLoader = () => {
       {Array.from({ length: 3 }).map((_, index) => (
         <div
           key={index}
-          className="w-full h-10 bg-gray-200 rounded-md animate-pulse"
+          className="w-full h-7 bg-gray-200 rounded-md animate-pulse"
         />
       ))}
     </div>

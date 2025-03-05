@@ -1,13 +1,13 @@
 import React from "react";
-import { useSankeyStore } from "@/store/sankey-store";
+import { useMetricStore } from "@/store/metric-store"; // ✅ Ensure the correct store is imported
 import SkeletonLoader from "@/components/SkeletonLoader";
+import { Check, PlusIcon } from "lucide-react";
 
 const MetricSelector = () => {
-  const { loading, showResults, generatedMetrics, setSelectedMetric } = useSankeyStore();
+  const { loading, showResults, generatedMetrics, setSelectedMetric, selectedMetric } = useMetricStore();
 
   return (
-    <div className="p-4 space-y-4">
-
+    <div className="p-2">
       {loading ? (
         <SkeletonLoader />
       ) : (
@@ -17,14 +17,16 @@ const MetricSelector = () => {
               generatedMetrics.map((metric, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-gray-100"
+                  className="flex items-center justify-between p-3 border-b cursor-pointer hover:bg-gray-100"
                   onClick={() => setSelectedMetric(metric.name)}
                 >
                   <span className="flex items-center gap-2">
                     <span>{metric.icon}</span>
                     {metric.name}
                   </span>
-                  <button className="text-gray-500">+</button>
+                  <button>
+                    {selectedMetric === metric.name ? <Check size={25} className="text-green-700" /> : <PlusIcon size={25} className="text-gray-700" />}
+                  </button>
                 </div>
               ))
             ) : (

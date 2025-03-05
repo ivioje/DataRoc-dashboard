@@ -1,26 +1,55 @@
-import React, { useEffect } from "react";
-import { Sankey, Tooltip } from "recharts";
-import { useSankeyStore } from "@/store/sankey-store"; 
-import { getSankeyData } from "@/lib/utils";
+"use client";
+
+import { SankeyController, Flow } from "chartjs-chart-sankey";
+import { Chart, registerables } from "chart.js";
+import { useEffect, useRef } from "react";
+import { useMetricStore } from "@/store/metric-store";
+
+Chart.register(...registerables, SankeyController, Flow);
 
 const SankeyChart = () => {
-  const { selectedMetric, data, setData } = useSankeyStore();
+  const chartRef = useRef<HTMLCanvasElement | null>(null);
+  const { data } = useMetricStore();
 
   useEffect(() => {
-    if (selectedMetric) {
-      setData(getSankeyData(selectedMetric));
+    if (!data || !data.nodes || !data.links || data.nodes.length === 0) {
+      console.warn("SankeyChart: No valid data found");
+      return;
     }
-  }, [selectedMetric, setData]);
 
-  if (!data) return <p className="text-center">Select a metric to generate the chart.</p>;
+    const ctx = chartRef.current?.getContext("2d");
+    if (!ctx) return;
 
-  return (
-    <div className="flex justify-center p-4 bg-white shadow-md rounded-lg">
-      <Sankey width={500} height={300} data={data} nodePadding={20}>
-        <Tooltip />
-      </Sankey>
-    </div>
-  );
+    Chart.getChart(chartRef.current as HTMLCanvasElement)?.destroy();
+
+    new Chart(ctx, {
+      type: "sankey",
+      data: {
+        labels: data.nodes.map((node: any) => node.name),
+        datasets: [
+          {
+            label: "User Flow",
+            data: data.links.map((link: any) => ({
+              from: link.source,
+              to: link.target,
+              flow: link.value,
+            })),
+            color: data.nodes.map((node: any) => node.color || "#ccc"),
+            colorMode: "from"
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+      },
+    });
+
+    return () => {
+      Chart.getChart(chartRef.current as HTMLCanvasElement)?.destroy();
+    };
+  }, [data]);
+
+  return <canvas ref={chartRef}></canvas>;
 };
 
 export default SankeyChart;

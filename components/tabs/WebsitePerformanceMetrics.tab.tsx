@@ -7,14 +7,16 @@ import WebsiteTopPagesTable from '../WebsitePageTable'
 import AddMetric from '../AddMetric'
 import PopoverComponent from '../Popover'
 import { useModalStore } from '@/store/modal-store'
+import { useMetricStore } from '@/store/metric-store'
 
 const WebsitePerformanceMetrics = () => {
     const { isOpen } = useModalStore();
+    const { chartGenerated } = useMetricStore();
   return (
     <div>
-        {isOpen && <PopoverComponent />}
+        {isOpen && !chartGenerated && <PopoverComponent />}
     <div className='flex items-start'>
-        <div className='flex flex-col w-[60%]'>
+        <div className='flex flex-col w-[80%]'>
             <div className='flex items-start w-full'>
                 <div className='w-[35%]'>
                     <WebsiteMetricCards />

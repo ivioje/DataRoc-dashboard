@@ -2,12 +2,14 @@ import { useModalStore } from '@/store/modal-store';
 import { SearchIcon, XIcon } from 'lucide-react';
 import React from 'react';
 import MetricSelector from './metric/MetricSelector';
-import { useSankeyStore } from '@/store/sankey-store';
+import { useMetricStore } from '@/store/metric-store';
 import LoadingSpinner from './Spinner';
 
 const PopoverComponent = () => {
 const { close } = useModalStore();
-  const { searchQuery, setSearchQuery, generateMetrics, generatedMetrics, loading } = useSankeyStore();
+  const { 
+    searchQuery, setSearchQuery, generateMetrics, loading, selectedMetric, startDataGathering, chartGenerated, generatedMetrics
+  } = useMetricStore();
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
@@ -46,7 +48,8 @@ const { close } = useModalStore();
             )}
             <button 
               onClick={generateMetrics}
-              className=" bg-gray-900 h-[43px] w-[85px] text-white px-4 py-3 rounded-md text-sm hover:bg-gray-800 transition-colors"
+              disabled={searchQuery === ''}
+              className={` ${searchQuery === '' ? 'cursor-not-allowed bg-gray-600': 'cursor-pointer hover:bg-gray-800'} bg-gray-900 h-[43px] w-[85px] text-white px-4 py-3 rounded-md text-sm transition-colors`}
             >
               {!loading && 
                 <span className='flex justify-center'>Generate
@@ -61,7 +64,7 @@ const { close } = useModalStore();
           </div>
 
           {/* Note Section */}
-          {!generatedMetrics.length &&
+          {searchQuery === '' &&
           <div className="mt-4 bg-gray-50 p-3 rounded-md">
             <p className="text-xs text-gray-500 leading-normal text-justify">
               <span className="font-semibold">Note:</span> AI can analyze user behavior to create more meaningful segments based on real actions, not just demographics. For example, it can group users based on their propensity to convert, engagement patterns, or interaction with specific features—giving you a clearer picture of what drives conversion and loyalty.
@@ -72,6 +75,19 @@ const { close } = useModalStore();
             <MetricSelector />
           }
         </div>
+
+        {generatedMetrics && selectedMetric && !(searchQuery === '') &&
+          <div className="mt-1 flex justify-end gap-3 w-full p-6">
+            <button
+              onClick={startDataGathering}
+              disabled={selectedMetric?.length === 0}
+              className="px-4 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-700"
+            >
+              Add New Metric(s)
+            </button>
+          </div>
+        }
+
       </div>
     </div>
   );
