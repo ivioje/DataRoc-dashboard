@@ -5,7 +5,6 @@ import ConversionByDeviceChart from '../charts/ConversionChart'
 import WebsiteRecurringRevenueChart from '../charts/WebsiteRecurringRevenueChart'
 import WebsiteTopPagesTable from '../WebsitePageTable'
 import AddMetric from '../AddMetric'
-import { Popover } from '../ui/popover'
 import PopoverComponent from '../Popover'
 import { useModalStore } from '@/store/modal-store'
 

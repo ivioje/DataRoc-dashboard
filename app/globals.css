@@ -33,3 +33,9 @@ body {
   -moz-appearance: none !important; /* For Firefox */
   appearance: none !important; /* Standard syntax */
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none; 
+  appearance: none;
+  display: none;  
+}
