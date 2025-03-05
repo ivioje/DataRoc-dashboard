@@ -9,7 +9,7 @@ Chart.register(...registerables, SankeyController, Flow);
 
 const SankeyChart = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const { data } = useMetricStore();
+  const { data, selectedMetric } = useMetricStore();
 
   useEffect(() => {
     if (!data || !data.nodes || !data.links || data.nodes.length === 0) {
@@ -49,7 +49,16 @@ const SankeyChart = () => {
     };
   }, [data]);
 
-  return <canvas ref={chartRef}></canvas>;
+  return (
+    <div className="bg-white border border-white rounded-[8px] min-h-[330px] mx-2 my-4 p-3">
+      <div className="flex items-center justify-center flex-col py-2 max-w-fit max-h-[300px] bg-white rounded-[15px]">
+        <h2 className="text-gray-500 uppercase w-full text-[12px] font-semibold flex items-start mb-4">
+          { selectedMetric }
+        </h2>
+        <canvas className="h-[300px]" ref={chartRef}></canvas>
+      </div>
+    </div>
+  )
 };
 
 export default SankeyChart;
