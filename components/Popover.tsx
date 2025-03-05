@@ -1,17 +1,17 @@
 import { useModalStore } from '@/store/modal-store';
 import { SearchIcon, XIcon } from 'lucide-react';
 import React from 'react';
+import MetricSelector from './metric/MetricSelector';
+import { useSankeyStore } from '@/store/sankey-store';
+import LoadingSpinner from './Spinner';
 
 const PopoverComponent = () => {
-const { close, inputValue, setInputValue } = useModalStore();
-
-  const handleGenerate = () => {
-    console.log('Generating metric:', inputValue);
-  };
+const { close } = useModalStore();
+  const { searchQuery, setSearchQuery, generateMetrics, generatedMetrics, loading } = useSankeyStore();
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-xl">
+      <div className="bg-white rounded-lg shadow-xl w-full max-w-xl min-h-[250px]">
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <h2 className="text-sm font-medium text-gray-600 uppercase tracking-wider">NEW AI METRIC</h2>
@@ -32,32 +32,45 @@ const { close, inputValue, setInputValue } = useModalStore();
             <input 
               type="search"
               placeholder="What metric would you like to measure?"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              className="w-full pl-10 pr-24 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:bg-cyan-50 focus:border-cyan-500 outline-none text-sm"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-[80%] pl-10 pr-24 mr-2 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:bg-cyan-50 focus:border-cyan-500 outline-none text-sm"
             />
-            {inputValue && (
+            {searchQuery && (
               <button 
-                onClick={() => setInputValue('')}
+                onClick={() => setSearchQuery('')}
                 className="absolute right-28 top-1/2 transform -translate-y-1/2 text-gray-900 hover:text-gray-600"
               >
                   <XIcon size={20} />
               </button>
             )}
             <button 
-              onClick={handleGenerate}
-              className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-black text-white px-4 py-2 rounded-md text-sm hover:bg-gray-800 transition-colors"
+              onClick={generateMetrics}
+              className=" bg-gray-900 h-[43px] w-[85px] text-white px-4 py-3 rounded-md text-sm hover:bg-gray-800 transition-colors"
             >
-              Generate
+              {!loading && 
+                <span className='flex justify-center'>Generate
+                </span>
+              } 
+              {loading && 
+                <div className='flex justify-center -mt-2'>
+                  <LoadingSpinner />
+                  </div>
+              }
             </button>
           </div>
 
           {/* Note Section */}
+          {!generatedMetrics.length &&
           <div className="mt-4 bg-gray-50 p-3 rounded-md">
             <p className="text-xs text-gray-500 leading-normal text-justify">
               <span className="font-semibold">Note:</span> AI can analyze user behavior to create more meaningful segments based on real actions, not just demographics. For example, it can group users based on their propensity to convert, engagement patterns, or interaction with specific features—giving you a clearer picture of what drives conversion and loyalty.
             </p>
           </div>
+          }
+          {searchQuery && 
+            <MetricSelector />
+          }
         </div>
       </div>
     </div>
