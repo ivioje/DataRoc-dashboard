@@ -69,13 +69,13 @@ const ConversionByDeviceChart = () => {
   }, []);
 
   return (
-    <div className="w-full px-4 py-2 bg-white rounded-[5px] max-h-[300px] my-3">
+    <div className="w-full px-4 py-2 bg-white rounded-[5px] max-h-[300px] my-3 xl:block flex">
     <h3 className="text-gray-600 font-medium text-[12px]">CONVERSION BY DEVICE</h3>
-    <div className='flex'>
+    <div className='flex xl:items-start items-center'>
         <div className='h-[260px] -mt-14'>
         <canvas ref={chartRef}></canvas>
         </div>
-        <div className="flex flex-col space-y-2 ml-2 w-[60%] mt-12">
+        <div className="flex flex-col space-y-2 ml-2 w-[60%] xl:mt-12">
             {chartData.map((item) => (
             <div key={item.id} className="flex items-center justify-between">
                 <div className="flex items-center w-full ml-5">

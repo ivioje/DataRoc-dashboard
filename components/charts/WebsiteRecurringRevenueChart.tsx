@@ -4,7 +4,7 @@ import { recurringChartData as data } from '@/lib/data';
 
 const WebsiteRecurringRevenueChart = () => {
   return (
-    <div className="bg-white p-3 rounded-[5px] w-full mx-4">
+    <div className="bg-white p-3 rounded-[5px] w-full xl:mx-4">
       <h2 className="text-gray-700 text-[12px] font-medium mb-6">MONTHLY RECURRING REVENUE</h2>
       
       <div className="h-[250px]">

@@ -14,7 +14,7 @@ export default function SelectLikeTab() {
     <div className="relative">
       <Select value={tab.selectedValue} onValueChange={tab.handleChangeTab}>
         <SelectTrigger
-          className="border-none shadow-none bg-none outline-none text-base text-gray-600 font-medium flex items-center cursor-pointer"
+          className="border-none shadow-none bg-none outline-none md:text-base text-sm text-gray-600 font-medium flex items-center cursor-pointer"
         >
           <Briefcase size={18} className="font-extralight text-gray-400 mr-2" />
           {tab.selectedValue === "business"
@@ -24,7 +24,7 @@ export default function SelectLikeTab() {
             : tab.selectedValue === "user"
             ? "User Behavior Metrics"
             : "Future Performance Metrics"}
-          <div className="pointer-events-none absolute inset-y-0 -right-10 flex items-center px-2 mt-1 text-gray-700">
+          <div className="pointer-events-none absolute inset-y-0 lg:-right-10 -right-7 flex items-center md:px-2 p-[10px] md:mt-1 text-gray-700">
             <ChevronDown />
           </div>
         </SelectTrigger>

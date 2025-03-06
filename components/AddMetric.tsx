@@ -9,7 +9,7 @@ const AddMetric = () => {
   const { chartGenerated } = useMetricStore();
 
   return (
-    <div>
+    <div className='w-full p-4'>
       {chartGenerated && <SankeyChart />}
 
     {!chartGenerated &&

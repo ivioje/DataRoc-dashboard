@@ -13,7 +13,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <div className="w-full">
-      <nav className="items-center py-6 w-full shadow-sm px-12">
+      <nav className="items-center py-6 w-full shadow-sm xl:px-11 lg:px-9 px-6">
         <div className="w-full defaultFlex">
           <Image src={logo} alt="logo" width={80} height={38} />
           <div className="defaultFlex w-[15%] ">
@@ -33,7 +33,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="py-6 w-full defaultFlex px-12">
+      <div className="py-6 w-full defaultFlex xl:px-11 lg:px-9 px-6">
         <Link
           href="https://www.essen.com/"
           target="blank"
