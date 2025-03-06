@@ -9,10 +9,10 @@ const DateRangePicker = () => {
   const [endDate, setEndDate] = useState<Date | null>(null);
 
   return (
-    <div className="flex items-center space-x-4 w-full">
+    <div className="flex items-center justify-center md:space-x-4 w-full">
       {/* From Date */}
-        <div className="flex items-center rounded-md px-3 py-2 relative w-1/2">
-          <span className="text-gray-700 mr-2">From</span>
+        <div className="flex items-center justify-center rounded-md px-3 py-2 relative md:w-1/2 w-[45%]">
+          <span className="text-gray-700 mr-2 sm:text-base text-sm">From</span>
           <span className="relative">
             <CalendarDaysIcon
               size={20}
@@ -41,8 +41,8 @@ const DateRangePicker = () => {
         </div>
 
       {/* To Date */}
-        <div className="flex items-center rounded-md px-3 py-2 relative w-1/2">
-          <span className="text-gray-700 mr-2">To</span>
+        <div className="flex items-center justify-center rounded-md px-3 py-2 relative md:w-1/2 w-[45%]">
+          <span className="text-gray-700 mr-2 sm:text-base text-sm">To</span>
           <span className="relative">
             <CalendarDaysIcon
               size={20}

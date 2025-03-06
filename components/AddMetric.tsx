@@ -9,12 +9,12 @@ const AddMetric = () => {
   const { chartGenerated } = useMetricStore();
 
   return (
-    <div className='w-full p-4'>
+    <div className='w-full p-4 flex justify-center items-center'>
       {chartGenerated && <SankeyChart />}
 
     {!chartGenerated &&
-      <div className='relative' onClick={() => open()}>
-      <div className="relative m-5 h-[280px] w-full border-2 border-dashed border-gray-400 rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors">
+      <div className='w-full' onClick={() => open()}>
+      <div className="sm:m-5 h-[280px] w-full border-2 border-dashed border-gray-400 rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors">
         <div className="mb-2">
           <PlusIcon size={28} />
         </div>

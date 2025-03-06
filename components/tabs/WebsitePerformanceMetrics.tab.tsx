@@ -28,10 +28,10 @@ const WebsitePerformanceMetrics = () => {
             </div>
             <div className='xl:visible hidden'><WebsiteTopPagesTable /></div>
         </div>
-        <div className='xl:w-[40%] w-full justify-center items-start flex xl:flex-col xl:mx-4 mb-5 xl:mt-0 mt-5'>
+        <div className='xl:w-[40%] w-full justify-center items-start flex xl:flex-col sm:flex-row flex-col xl:mx-4 mb-5 xl:mt-0 mt-5'>
             <WebsiteRecurringRevenueChart />
             <AddMetric />
-        </div>
+    </div>
         <div className='xl:hidden visible w-full'><WebsiteTopPagesTable /></div>
     </div>
     </div>

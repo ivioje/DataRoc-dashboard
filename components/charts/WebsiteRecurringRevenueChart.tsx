@@ -4,8 +4,8 @@ import { recurringChartData as data } from '@/lib/data';
 
 const WebsiteRecurringRevenueChart = () => {
   return (
-    <div className="bg-white p-3 rounded-[5px] w-full xl:mx-4">
-      <h2 className="text-gray-700 text-[12px] font-medium mb-6">MONTHLY RECURRING REVENUE</h2>
+    <div className="bg-white sm:p-3 py-3 p-1 rounded-[5px] w-full xl:mx-4">
+      <h2 className="text-gray-700 text-[12px] font-medium mb-6 sm:p-0 p-3">MONTHLY RECURRING REVENUE</h2>
       
       <div className="h-[250px]">
         <ResponsiveContainer width="100%" height="100%">
@@ -44,7 +44,6 @@ const WebsiteRecurringRevenueChart = () => {
               activeDot={{ r: 6, fill: '#6366f1', stroke: '#a5b4fc', strokeWidth: 3 }}
               name="2023"
             />
-            {/* Placeholder for 2024 data shown in the legend but not plotted */}
             <Line
               dataKey="revenue2024"
               stroke="#86efac"

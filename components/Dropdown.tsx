@@ -16,7 +16,7 @@ export default function SelectLikeTab() {
         <SelectTrigger
           className="border-none shadow-none bg-none outline-none md:text-base text-sm text-gray-600 font-medium flex items-center cursor-pointer"
         >
-          <Briefcase size={18} className="font-extralight text-gray-400 mr-2" />
+          <Briefcase size={18} className="font-extralight text-gray-400 mr-2 sm:block hidden" />
           {tab.selectedValue === "business"
             ? "Business Performance Metrics"
             : tab.selectedValue === "website"
@@ -24,7 +24,7 @@ export default function SelectLikeTab() {
             : tab.selectedValue === "user"
             ? "User Behavior Metrics"
             : "Future Performance Metrics"}
-          <div className="pointer-events-none absolute inset-y-0 lg:-right-10 -right-7 flex items-center md:px-2 p-[10px] md:mt-1 text-gray-700">
+          <div className="pointer-events-none absolute inset-y-0 lg:-right-10 sm:-right-7 -right-[22px] mt-[2px] flex items-center md:px-2 p-[10px] md:mt-1 text-gray-700">
             <ChevronDown />
           </div>
         </SelectTrigger>

@@ -20,13 +20,13 @@ const WebsiteMetricCards = () => {
   };
 
   return (
-    <div className="bg-white rounded-[5px] flex lg:flex-col lg:w-[90%] w-full">
+    <div className="bg-white rounded-[5px] flex lg:flex-col sm:flex-row flex-col lg:w-[90%] w-full">
       {metricsData.slice(0, 3).map((metric, index) => (
         <div 
           key={index} 
-          className='lg:px-6 px-2 w-full lg:py-0 py-3'
+          className='lg:px-6 sm:px-2 w-full lg:py-0 py-3'
         >
-          <div className={`lg:py-[18px] py-3 lg:px-0 px-5 ${index === 0 ? '' : 'lg:border-b border-l border-gray-200'}`}>
+          <div className={`lg:py-[18px] py-5 lg:px-0 md:px-5 px-2 ${index === 2 ? 'lg:border-l-0' : 'lg:border-b lg:border-l-0 lg:border-gray-200'}  ${index === 0 ? 'sm:border-b-0' : 'sm:border-l sm:border-b-0 sm:border-gray-200'}  ${index === 2 ? '' : 'border-b border-gray-200'}`}>
             <div className="flex justify-between items-center">
               <h3 className="text-gray-600 font-medium text-[12px]">{metric.title}</h3>
               <div className='bg-gray-100 p-1 rounded-full'>{getChangeIcon(metric.changeType)}</div>
@@ -38,7 +38,7 @@ const WebsiteMetricCards = () => {
                 {metric.unit && <span className="ml-1 text-gray-500 text-[12px]">{metric.unit}</span>}
               </div>
               
-              <div className="mt-1 flex items-center text-[12px] py-1">
+              <div className="mt-1 flex items-center w-full text-[12px] py-1">
                 <span className={`font-medium ${getChangeColor(metric.changeType)}`}>
                   {metric.change}%
                 </span>

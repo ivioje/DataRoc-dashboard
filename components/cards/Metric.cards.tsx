@@ -26,10 +26,10 @@ const MetricCard = () => {
           key={index} 
           className='py-4 bg-white w-full'
         >
-          <div className={`px-6 ${index === 1 ? '' : 'border-r border-gray-200'}`}>
+          <div className={`sm:px-6 px-4 ${index === 1 ? '' : 'border-r border-gray-200'}`}>
             <div className="flex justify-between items-center">
               <h3 className="text-gray-600 font-medium text-[12px]">{metric.title}</h3>
-              <div className='bg-gray-100 p-1 rounded-full'>{getChangeIcon(metric.changeType)}</div>
+              <div className='bg-gray-100 p-1 rounded-full mx-[2px]'>{getChangeIcon(metric.changeType)}</div>
             </div>
             
             <div className="mt-2">
@@ -38,7 +38,7 @@ const MetricCard = () => {
                 {metric.unit && <span className="ml-1 text-gray-500 text-[12px]">{metric.unit}</span>}
               </div>
               
-              <div className="mt-1 flex items-center text-[12px] py-1">
+              <div className="mt-1 flex items-center text-[12px] py-1 sm:flex-row flex-col">
                 <span className={`font-medium ${getChangeColor(metric.changeType)}`}>
                   {metric.change}%
                 </span>
