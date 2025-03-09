@@ -5,7 +5,7 @@ import { formatNumber } from "@/utils/formatNumber";
 
 const Card = ({index, ...props}: CardInterface & { index: number }) => {
   return (
-    <div className={`flex items-start flex-col justify-start w-full py-2 px-3 border-t-0 border-b-0 border-r-0 border-[4px] ${index === 0 ? "border-l-0" : "border-l"}`}>
+    <div className={`flex items-start flex-col justify-start w-full py-2 px-3 xl:mx-3 md:mx-5 border-t-0 border-b-0 border-r-0 border-[4px] ${index === 0 ? "border-l-0" : "border-l"}`}>
       <div className="flex justify-between items-center w-full">
         <h4 className="uppercase text-gray-500 font-semibold text-[12px]">
           {props.title}

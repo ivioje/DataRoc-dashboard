@@ -13,7 +13,8 @@ export default {
         inter: ["Inter", "serif"],
       },
       screens: {
-        xs: '400px'
+        xs: '400px',
+        lgx: '1300px'
       }
     },
   },
