@@ -26,20 +26,20 @@ const OperatingExpenses = () => {
   };
 
   return (
-    <div className="bg-white flex items-center justify-center flex-col max-h-[250px] w-[60%] pb-4 pt-3 px-3 my-2 mr-2 rounded-[15px]">
+    <div className="flex items-center justify-center flex-col w-full h-full pb-4 pt-3 px-3 my-2 rounded-[15px]">
       <h2 className="text-gray-500 w-full uppercase text-[12px] font-semibold mb-4 flex items-start">
         Operating Expenses
       </h2>
-      <div className="flex w-full">
-        <div className="h-[160px] relative w-[40%]">
+      <div className="flex w-full lgx:justify-normal justify-between">
+        <div className="h-[160px] w-auto relative lgx:w-[40%]">
           <Doughnut data={data} options={options} />
-          <div className="absolute top-[43%] left-[42px] text-lg font-bold text-gray-700">
+          <div className="absolute top-[43%] left-[47px] text-lg font-bold text-gray-700">
             120,000
           </div>
         </div>
 
         {/* Custom Vertical Legend */}
-        <div className="flex flex-col space-y-2 ml-2 w-[60%]">
+        <div className="flex flex-col space-y-2 ml-2 w-full lgx:w-[60%]">
           {ExpensesChartData.map((item, index) => (
             <div key={item.id} className="flex items-center justify-between">
               <div className="flex items-center w-full ml-5">
