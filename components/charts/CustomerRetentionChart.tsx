@@ -42,7 +42,7 @@ const CustomerRetentionChart = () => {
 
       {/* Doughnut Chart */}
       <div className="relative flex items-center justify-center">
-        <div className="h-[160px] w-full lgx:w-[300px] -mt-5">
+        <div className="lgx:h-[160px] h-[130px] w-full lgx:w-[300px] -mt-5">
           <Doughnut
             data={data}
             options={options}
@@ -50,7 +50,7 @@ const CustomerRetentionChart = () => {
           />
         </div>
         {/* Center Text */}
-        <div className="absolute text-white text-[12px] text-center">
+        <div className="absolute text-white lgx:text-[12px] text-[10px] text-center">
           <p>Retained</p>
           <p className="text-[10px] font-medium">80</p>
         </div>
