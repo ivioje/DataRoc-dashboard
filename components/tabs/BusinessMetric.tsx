@@ -12,11 +12,11 @@ const BusinessMetric = () => {
     <div>
       <div className="flex">
         <div className="my-1 min-w-[70%]">
-          <div className="flex w-full">
+          <div className="flex w-full justify-center">
           {/**cards */}
-            <div className="flex items-start lgx:justify-center justify-start lgx:w-full w-fit lgx:flex-row flex-col bg-white rounded">
+            <div className="flex items-start lgx:justify-center justify-start lgx:w-full mdx:w-fit sm:w-[40%] w-full lgx:flex-row flex-col bg-white rounded">
               {CardStat.map((card, index) => (
-                <div key={card.id} className="py-2">
+                <div key={card.id} className="py-2 w-full">
                   <Card
                     title={card.title}
                     figure={card.figure}
@@ -29,10 +29,10 @@ const BusinessMetric = () => {
               ))}
             </div>
             {/**<1300px */}
-            <div className="min-w-[10%] lgx:hidden flex flex-col items-start mt-2 mx-4">
+            <div className="mdx:min-w-[10%] sm:w-[70%] lgx:hidden border flex flex-col items-start mt-2 mx-4">
               {/* <div className="lgx:block hidden"><MonthlyRecurringRevenueChart /></div> */}
-              <PortfolioComparisonChart />
-              <div className="w-full"><OperatingExpenses /></div>
+              <div className="w-full"><PortfolioComparisonChart /></div>
+              <div className="w-full border"><OperatingExpenses /></div>
             </div>
           </div>
 
@@ -49,10 +49,14 @@ const BusinessMetric = () => {
           <MonthlyRecurringRevenueChart />
           <PortfolioComparisonChart />
         </div>
-        <div className="min-w-[10%] lgx:hidden block mt-2">
+        <div className="min-w-[10%] lgx:hidden mdx:block hidden mt-2">
           <MonthlyRecurringRevenueChart />
           <CustomerRetentionChart />
         </div>
+      </div>
+      <div className="min-w-[10%] mdx:hidden flex items-start mt-2">
+          <MonthlyRecurringRevenueChart />
+          <CustomerRetentionChart />
       </div>
       <div className="lgx:hidden block">
           <RevenueTable />

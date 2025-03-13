@@ -153,14 +153,14 @@ const PortfolioComparisonChart = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col gap-2 px-3 py-3 bg-white rounded-[7px] mx-2 lgx:mt-4 lgx:w-fit w-full">
+    <div className="flex items-center justify-center flex-col gap-2 px-3 py-3 bg-white rounded-[7px] mx-2 lgx:mt-4 lgx:w-fit w-full border">
       <h2 className="text-gray-500 mb-2 w-full uppercase text-[12px] font-semibold flex items-start">
         DEBT TO EQUITY RATIO
       </h2>
 
       <CustomLegend />
 
-      <div className="lgx:h-[280px] w-full mt-5">
+      <div className="lgx:h-[280px] h-[250px] w-full mt-5">
         <Radar ref={chartRef} data={data} options={options} className="h-full w-full" />
       </div>
     </div>

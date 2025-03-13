@@ -7,6 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, Title);
 const CustomerRetentionChart = () => {
   const data = {
     labels: ["Retained", "Churned"],
+    
     datasets: [
       {
         data: [95, 5],
@@ -42,7 +43,7 @@ const CustomerRetentionChart = () => {
 
       {/* Doughnut Chart */}
       <div className="relative flex items-center justify-center">
-        <div className="h-[160px] w-full lgx:w-[300px] -mt-5">
+        <div className="lg:h-[160px] h-[140px] w-full lgx:w-[300px] -mt-5">
           <Doughnut
             data={data}
             options={options}
@@ -50,9 +51,9 @@ const CustomerRetentionChart = () => {
           />
         </div>
         {/* Center Text */}
-        <div className="absolute text-white text-[12px] text-center">
+        <div className="absolute text-white mdx:text-[12px] text-[10px] text-center">
           <p>Retained</p>
-          <p className="text-[10px] font-medium">80</p>
+          <p className="font-medium">80</p>
         </div>
       </div>
     </div>
