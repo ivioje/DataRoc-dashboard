@@ -14,7 +14,7 @@ const Navbar = () => {
     <div className="w-full">
       <nav className="items-center py-6 w-full shadow-sm xl:px-11 lg:px-9 sm:px-6 px-3">
         <div className="w-full defaultFlex">
-          <Link href='/dashboard' onClick={()=> router.refresh()}>
+          <Link href='/' onClick={()=> router.refresh()}>
             <Image src={logo} alt="logo" width={80} height={38} />
           </Link>
           <div className="defaultFlex xl:w-[15%] lg:w-[20%] md:w-[25%] sm:w-[30%] xs:w-[35%] w-[40%]">
