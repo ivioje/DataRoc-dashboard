@@ -11,9 +11,6 @@ const SankeyContainer = () => {
   
     return (
         <div className="flex items-center justify-center flex-col w-full">
-          {/* <h2 className="text-gray-500 uppercase w-full text-[12px] font-semibold flex items-start mb-4">
-            user path analysis
-          </h2> */}
         {data && data.nodes && data.links ? <SankeyChart /> : <p>Loading chart...</p>}
       </div>
     );

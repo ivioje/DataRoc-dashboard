@@ -21,3 +21,10 @@ export interface Title {
   Unpaid: string;
   Overdue: string;
 }
+
+export interface SankeyLink {
+  source: string;
+  target: string;
+  value: number;
+  color?: string;
+}

@@ -1,7 +1,7 @@
 import { useModalStore } from '@/store/modal-store';
 import { PlusIcon } from 'lucide-react';
 import React from 'react';
-import SankeyChart from './charts/SankeyChart';
+import SankeyChart from '../charts/SankeyChart';
 import { useMetricStore } from '@/store/metric-store';
 
 const AddMetric = () => {

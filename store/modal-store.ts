@@ -1,4 +1,5 @@
-import { create } from "zustand"
+import { create } from "zustand";
+import { useTabStore } from "./tab-store";
 
 type ModalStore = {
   isOpen: boolean

@@ -4,6 +4,7 @@ import { SankeyController, Flow } from "chartjs-chart-sankey";
 import { Chart, registerables } from "chart.js";
 import { useEffect, useRef } from "react";
 import { useMetricStore } from "@/store/metric-store";
+import { SankeyLink } from "@/lib/interfaces";
 
 Chart.register(...registerables, SankeyController, Flow);
 
@@ -13,7 +14,6 @@ const SankeyChart = () => {
 
   useEffect(() => {
     if (!data || !data.nodes || !data.links || data.nodes.length === 0) {
-      console.warn("SankeyChart: No valid data found");
       return;
     }
 
@@ -22,18 +22,10 @@ const SankeyChart = () => {
 
     Chart.getChart(chartRef.current as HTMLCanvasElement)?.destroy();
 
-    // Create a map of node ids to node names for the from/to values
     const nodeMap: { [key: string]: string } = {};
     data.nodes.forEach((node: { id: string; name: string }) => {
       nodeMap[node.id] = node.name;
     });
-
-    interface SankeyLink {
-      source: string;
-      target: string;
-      value: number;
-      color?: string;
-    }
 
     new Chart(ctx, {
       type: "sankey",

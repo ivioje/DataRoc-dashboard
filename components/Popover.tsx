@@ -1,8 +1,9 @@
-import { useModalStore } from '@/store/modal-store';
-import { SearchIcon, XIcon } from 'lucide-react';
 import React from 'react';
-import MetricSelector from './metric/MetricSelector';
+import { useModalStore } from '@/store/modal-store';
 import { useMetricStore } from '@/store/metric-store';
+
+import { SearchIcon, XIcon } from 'lucide-react';
+import MetricSelector from './metric/MetricSelector';
 import LoadingSpinner from './Spinner';
 import Image from 'next/image';
 import generatingMetricImage from "../assets/ai-metric.gif";
@@ -16,7 +17,6 @@ const { close } = useModalStore();
     loading, 
     selectedMetric, 
     startDataGathering, 
-    chartGenerated, 
     generatedMetrics,
     gatheringData
   } = useMetricStore();
@@ -37,6 +37,8 @@ const { close } = useModalStore();
           </button>
         </div>
 
+      {/**generating metric placeholder */}
+      <div className='flex justify-center items-center'>
         {gatheringData && (
           <div className='flex flex-col justify-center p-3'>
             <div className='flex flex-col justify-center'>
@@ -45,6 +47,7 @@ const { close } = useModalStore();
             </div>
           </div>
         )}
+      </div>
         {/* Search Input */}
         {!gatheringData && (
         <div className="p-6">
@@ -57,6 +60,7 @@ const { close } = useModalStore();
               placeholder="What metric would you like to measure?"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {e.key === 'Enter' && searchQuery !== ''? generateMetrics() : null}}
               className="sm:w-[80%] w-full pl-10 pr-24 mr-2 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:bg-cyan-50 focus:border-cyan-500 outline-none text-sm"
             />
             {searchQuery && (

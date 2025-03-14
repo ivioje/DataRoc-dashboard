@@ -1,17 +1,14 @@
 "use client";
 import { useEffect } from "react";
-import { DownloadIcon, Filter } from "lucide-react";
-import ButtonComponent from "./shared/Button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-  RadioGroup,
-} from "@radix-ui/react-dropdown-menu";
 import { formatDate } from "@/utils/formatDate";
-import { IoIosArrowDropdown } from "react-icons/io";
 import { useRevenueStore } from "@/store/revenue-store";
+
+import { DownloadIcon, Filter, MoreVertical } from "lucide-react";
+import ButtonComponent from "./shared/Button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, RadioGroup} from "@radix-ui/react-dropdown-menu";
+import { IoIosArrowDropdown } from "react-icons/io";
 import Search from "./Search";
+import TableMenu from "./TableMenu";
 
 export default function RevenueTable() {
   const { 
@@ -106,16 +103,10 @@ export default function RevenueTable() {
                 onValueChange={setSortBy}
                 className="space-y-2"
               >
-                {[
-                  "Default",
-                  "First Name",
-                  "Last Name",
-                  "Due Date",
-                  "Last Login",
-                ].map((option) => (
+                {["Default", "First Name", "Last Name", "Due Date", "Last Login"].map((option) => (
                   <label
                     key={option}
-                    className="flex items-center justify-between hover:bg-purple-50 p-[2px] cursor-pointer"
+                    className="flex items-center justify-between hover:bg-purple-50 p-0.5 cursor-pointer"
                   >
                     <span>{option}</span>
                     <input
@@ -126,8 +117,8 @@ export default function RevenueTable() {
                       onChange={() => setSortBy(option)}
                       className="hidden peer appearance-none text-[12px]"
                     />
-                    <div className="w-[14px] h-[14px] border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
-                      <div className="w-[5px] h-[5px] bg-white rounded-full"></div>
+                    <div className="w-3.5 h-3.5 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
+                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                     </div>
                   </label>
                 ))}
@@ -135,7 +126,7 @@ export default function RevenueTable() {
 
               <div className="my-3 border-t"></div>
 
-              <p className="text-[12px] font-light uppercase mb-2 text-[#6E6893]">
+              <p className="text-xs font-light uppercase mb-2 text-[#6E6893]">
                 Users:
               </p>
               <RadioGroup
@@ -146,7 +137,7 @@ export default function RevenueTable() {
                 {["All", "Active", "Inactive"].map((option) => (
                   <label
                     key={option}
-                    className="flex items-center justify-between hover:bg-purple-50 p-[2px] cursor-pointer"
+                    className="flex items-center justify-between hover:bg-purple-50 p-0.5 cursor-pointer"
                   >
                     <span>{option}</span>
                     <input
@@ -155,17 +146,17 @@ export default function RevenueTable() {
                       value={option}
                       checked={isActive === option}
                       onChange={() => filterUsers(option)}
-                      className="hidden peer appearance-none text-[12px]"
+                      className="hidden peer appearance-none text-xs"
                     />
-                    <div className="w-[14px] h-[14px] border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
-                      <div className="w-[5px] h-[5px] bg-white rounded-full"></div>
+                    <div className="w-3.5 h-3.5 border-2 border-[#6D5BD0] rounded-full flex items-center justify-center peer-checked:bg-[#6D5BD0]">
+                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                     </div>
                   </label>
                 ))}
               </RadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
-            <div className="sm:flex hidden items-center lg:w-[40%] w-[70%] relative bg-cyan-50">
+            <div className="sm:flex hidden items-center lg:w-2/5 w-[70%] relative bg-cyan-50">
               <Search search={search} setSearch={setSearch} />
             </div>
         </div>
@@ -179,8 +170,8 @@ export default function RevenueTable() {
     <div className="md:overflow-auto overflow-x-scroll">
       <table className="w-full text-left border-collapse z-10 bg-white py-3">
       <thead>
-        <tr className="bg-[#ECFEFF] border border-r-0 border-l-0 text-cyan-900 text-[13px] text-nowrap">
-          <th className="py-[6px] px-3">
+        <tr className="bg-cyan-50 border border-r-0 border-l-0 text-cyan-900 text-xs text-nowrap">
+          <th className="py-1.5 px-3">
             <input 
               type="checkbox" 
               className="w-4 h-4 cursor-pointer" 
@@ -189,23 +180,23 @@ export default function RevenueTable() {
               aria-label="Select all rows"
             />
           </th>
-          <th className="py-[6px] px-3"></th>
-          <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
+          <th className="py-1.5 px-3"></th>
+          <th className="py-1.5 px-3 font-medium uppercase text-gray-700">
             Employee Name
           </th>
-          <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
+          <th className="py-1.5 px-3 font-medium uppercase text-gray-700">
             Employee Status
           </th>
-          <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
+          <th className="py-1.5 px-3 font-medium uppercase text-gray-700">
             Deposit Status
           </th>
-          <th className="py-[6px] px-3 font-medium uppercase text-gray-700">
+          <th className="py-1.5 px-3 font-medium uppercase text-gray-700">
             Amount
           </th>
-          <th className="py-[6px] px-3 font-medium uppercase text-gray-700"></th>
-          <th className="py-[6px] px-3 font-medium uppercase text-gray-700"></th>
+          <th className="py-1.5 px-3 font-medium uppercase text-gray-700"></th>
+          <th className="py-1.5 px-3 font-medium uppercase text-gray-700"></th>
           <th className="py-2 text-2xl pr-2 text-gray-900 cursor-pointer">
-            &#8942;
+           <MoreVertical size={18} />
           </th>
         </tr>
       </thead>
@@ -238,11 +229,11 @@ export default function RevenueTable() {
             </td>
             <td className="py-2 px-3">
               <p className="font-medium text-sm">{employee.name}</p>
-              <p className="text-gray-500 text-[13px]">{employee.email}</p>
+              <p className="text-gray-500 text-xs">{employee.email}</p>
             </td>
             <td className="py-2 px-3">
               <span
-                className={`px-2 flex w-fit items-center rounded-full text-[12px] bg-gray-200 ${
+                className={`px-2 flex w-fit items-center rounded-full text-xs bg-gray-200 ${
                   employee.status === "Active"
                     ? "text-green-700"
                     : "text-red-700"
@@ -254,7 +245,7 @@ export default function RevenueTable() {
             </td>
             <td className="py-2 px-3">
               <span
-                className={`px-2 py-1 rounded-full text-[12px] ${
+                className={`px-2 py-1 rounded-full text-xs ${
                   employee.deposit === "Paid"
                     ? "bg-green-100 text-green-700"
                     : employee.deposit === "Unpaid"
@@ -269,7 +260,7 @@ export default function RevenueTable() {
               </p>
             </td>
             <td className="py-2 px-3 font-medium">
-              <span className="ml-6 text-[15px]">${employee.amount}</span> <br />
+              <span className="ml-6 text-base">${employee.amount}</span> <br />
               <span className="text-sm text-cyan-900 text-right ml-8">
                 USD
               </span>
@@ -278,7 +269,12 @@ export default function RevenueTable() {
               View More
             </td>
             <td className="py-2 text-3xl text-gray-900 cursor-pointer absolute right-2 w-fit">
-              &#8942;
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <MoreVertical size={18} />
+                </DropdownMenuTrigger>
+                <TableMenu />
+              </DropdownMenu>
             </td>
           </tr>
         ))}

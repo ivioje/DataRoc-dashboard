@@ -68,7 +68,6 @@ export const useMetricStore = create<MetricState>((set, get) => ({
     set({ gatheringData: true, chartGenerated: false });
   
     setTimeout(() => {
-      // New data structure that matches the diagram in the image
       const newData = {
         nodes: [
           { name: "Home", id: 0, color: "#23c0de" },
@@ -80,18 +79,18 @@ export const useMetricStore = create<MetricState>((set, get) => ({
           { name: "Check Out", id: 6, color: "#18d3e3" }
         ],
         links: [
-          { source: 0, target: 1, value: 11203, color: "#64c9f2" }, // Home -> About Us
-          { source: 0, target: 2, value: 45000, color: "#64c9f2" }, // Home -> Buy Products  
-          { source: 0, target: 3, value: 30504, color: "#64c9f2" }, // Home -> Events
-          { source: 0, target: 4, value: 45988, color: "#64c9f2" }, // Home -> What's New
-          { source: 1, target: 5, value: 23000, color: "#f9c27f" }, // About Us -> Exit
-          { source: 2, target: 5, value: 23000, color: "#f9968e" }, // Buy Products -> Exit
-          { source: 3, target: 5, value: 23000, color: "#8ce5a6" }, // Events -> Exit
-          { source: 4, target: 5, value: 23000, color: "#f9b07f" }, // What's New -> Exit
-          { source: 1, target: 6, value: 18203, color: "#f9c27f" }, // About Us -> Check Out
-          { source: 2, target: 6, value: 18203, color: "#f9968e" }, // Buy Products -> Check Out
-          { source: 3, target: 6, value: 18203, color: "#8ce5a6" }, // Events -> Check Out
-          { source: 4, target: 6, value: 18203, color: "#f9b07f" }  // What's New -> Check Out
+          { source: 0, target: 1, value: 11203, color: "#64c9f2" },
+          { source: 0, target: 2, value: 45000, color: "#64c9f2" },
+          { source: 0, target: 3, value: 30504, color: "#64c9f2" },
+          { source: 0, target: 4, value: 45988, color: "#64c9f2" },
+          { source: 1, target: 5, value: 23000, color: "#f9c27f" },
+          { source: 2, target: 5, value: 23000, color: "#f9968e" },
+          { source: 3, target: 5, value: 23000, color: "#8ce5a6" },
+          { source: 4, target: 5, value: 23000, color: "#f9b07f" },
+          { source: 1, target: 6, value: 18203, color: "#f9c27f" },
+          { source: 2, target: 6, value: 18203, color: "#f9968e" },
+          { source: 3, target: 6, value: 18203, color: "#8ce5a6" },
+          { source: 4, target: 6, value: 18203, color: "#f9b07f" }
         ]
       };
   

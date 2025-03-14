@@ -1,21 +1,22 @@
-import {
-  ArrowUpRightFromSquare,
-  BellIcon,
-  RefreshCwIcon,
-  SearchIcon,
-  SettingsIcon,
-} from "lucide-react";
-import Image from "next/image";
+"use client";
+
 import React from "react";
-import logo from "../../assets/logo.png";
+import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import {ArrowUpRightFromSquare, BellIcon, RefreshCwIcon, SearchIcon, SettingsIcon} from "lucide-react";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <div className="w-full">
       <nav className="items-center py-6 w-full shadow-sm xl:px-11 lg:px-9 sm:px-6 px-3">
         <div className="w-full defaultFlex">
-          <Image src={logo} alt="logo" width={80} height={38} />
+          <Link href='/dashboard' onClick={()=> router.refresh()}>
+            <Image src={logo} alt="logo" width={80} height={38} />
+          </Link>
           <div className="defaultFlex xl:w-[15%] lg:w-[20%] md:w-[25%] sm:w-[30%] xs:w-[35%] w-[40%]">
             <SearchIcon size={18} className="sm:block hidden" />
             <SearchIcon size={20} className="sm:hidden block" />
@@ -45,7 +46,7 @@ const Navbar = () => {
           <span className="sm:text-lg text-base text-blue-700">www.essen.com</span>{" "}
           <ArrowUpRightFromSquare size={15} className="ml-4 mt-1" />
         </Link>
-        <RefreshCwIcon size={18} />
+        <RefreshCwIcon size={18} onClick={()=> router.refresh()} />
       </div>
     </div>
   );
