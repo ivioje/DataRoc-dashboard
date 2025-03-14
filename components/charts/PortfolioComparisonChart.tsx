@@ -153,7 +153,7 @@ const PortfolioComparisonChart = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-col gap-2 px-3 py-3 bg-white rounded-[7px] mx-2 lgx:mt-4 lgx:w-fit w-full border">
+    <div className="flex items-center justify-center flex-col gap-2 px-3 py-3 bg-white rounded-[7px] mx-2 lgx:mt-4 lgx:w-fit w-full">
       <h2 className="text-gray-500 mb-2 w-full uppercase text-[12px] font-semibold flex items-start">
         DEBT TO EQUITY RATIO
       </h2>

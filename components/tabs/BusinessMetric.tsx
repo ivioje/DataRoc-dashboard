@@ -11,10 +11,10 @@ const BusinessMetric = () => {
   return (
     <div>
       <div className="flex">
-        <div className="my-1 min-w-[70%]">
-          <div className="flex w-full justify-center">
+        <div className="my-1 md:min-w-[60%] w-full">
+          <div className="flex md:flex-row flex-col w-full justify-center">
           {/**cards */}
-            <div className="flex items-start lgx:justify-center justify-start lgx:w-full mdx:w-fit sm:w-[40%] w-full lgx:flex-row flex-col bg-white rounded">
+            <div className="flex items-start lgx:justify-center md:justify-start justify-center lgx:w-full mdx:w-fit md:w-[40%] w-full lgx:flex-row flex-col bg-white rounded">
               {CardStat.map((card, index) => (
                 <div key={card.id} className="py-2 w-full">
                   <Card
@@ -29,10 +29,9 @@ const BusinessMetric = () => {
               ))}
             </div>
             {/**<1300px */}
-            <div className="mdx:min-w-[10%] sm:w-[70%] lgx:hidden border flex flex-col items-start mt-2 mx-4">
-              {/* <div className="lgx:block hidden"><MonthlyRecurringRevenueChart /></div> */}
+            <div className="mdx:min-w-[10%] w-full md:w-[70%] lgx:hidden flex flex-col items-start mt-2 mx-4">
               <div className="w-full"><PortfolioComparisonChart /></div>
-              <div className="w-full border"><OperatingExpenses /></div>
+              <div className="w-full"><OperatingExpenses /></div>
             </div>
           </div>
 
@@ -45,18 +44,18 @@ const BusinessMetric = () => {
             <RevenueTable />
           </div>
         </div>
-        <div className=" lgx:block hidden">
+        <div className="lgx:block hidden">
           <MonthlyRecurringRevenueChart />
           <PortfolioComparisonChart />
         </div>
-        <div className="min-w-[10%] lgx:hidden mdx:block hidden mt-2">
+        <div className="min-w-[30%] lgx:hidden mdx:block hidden mt-2">
           <MonthlyRecurringRevenueChart />
           <CustomerRetentionChart />
         </div>
       </div>
-      <div className="min-w-[10%] mdx:hidden flex items-start mt-2">
-          <MonthlyRecurringRevenueChart />
-          <CustomerRetentionChart />
+      <div className="w-full mdx:hidden flex sm:flex-row flex-col items-start mt-2">
+        <div className="sm:w-1/2 w-full"><MonthlyRecurringRevenueChart /></div>
+        <div className="sm:w-1/2 w-full"><CustomerRetentionChart /></div>
       </div>
       <div className="lgx:hidden block">
           <RevenueTable />

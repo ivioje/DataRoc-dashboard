@@ -1,4 +1,3 @@
-"use client";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 
@@ -17,12 +16,30 @@ const CustomerRetentionChart = () => {
     ],
   };
 
-  const options = {
+  const optionA = {
     cutout: "0%",
     plugins: {
       legend: {
         display: true,
         position: "right" as const,
+        labels: {
+          boxWidth: 5,
+          boxHeight: 5,
+          padding: 10,
+        },
+      },
+      tooltip: { enabled: true },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+  };
+
+  const optionB = {
+    cutout: "0%",
+    plugins: {
+      legend: {
+        display: true,
+        position: "top" as const,
         labels: {
           boxWidth: 5,
           boxHeight: 5,
@@ -41,16 +58,21 @@ const CustomerRetentionChart = () => {
         Customer retention rate
       </h2>
 
-      {/* Doughnut Chart */}
-      <div className="relative flex items-center justify-center">
-        <div className="lg:h-[160px] h-[140px] w-full lgx:w-[300px] -mt-5">
+      <div className="relative flex items-center justify-center w-full">
+        <div className="h-[160px] w-full lgx:w-[300px] -mt-5 mdx:block hidden">
           <Doughnut
             data={data}
-            options={options}
-            className="h-[300px] w-[300px]"
+            options={optionA}
+            className="h-[300px] w-auto lgx:w-[300px]"
           />
         </div>
-        {/* Center Text */}
+        <div className="md:h-[160px] h-[180px] w-full -mt-5 mdx:hidden block">
+          <Doughnut
+            data={data}
+            options={optionB}
+            className="h-[300px] w-full"
+          />
+        </div>
         <div className="absolute text-white mdx:text-[12px] text-[10px] text-center">
           <p>Retained</p>
           <p className="font-medium">80</p>

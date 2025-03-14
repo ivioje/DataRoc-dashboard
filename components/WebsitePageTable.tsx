@@ -8,13 +8,13 @@ import { IoPricetagOutline } from "react-icons/io5";
 
 const WebsiteTopPagesTable = () => {
     return (
-        <div className="p-4 w-full bg-white mt-3 sm:overflow-hidden overflow-x-scroll">
+        <div className="p-4 w-full bg-white mt-3">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-[13px] font-medium text-gray-600">TOP PAGES</h2>
             <a href="https://essen.com" className="text-blue-500 hover:underline text-sm">https://essen.com</a>
           </div>
           
-          <div className="overflow-x-auto  min-w-[600px]">
+          <div className="sm:overflow-hidden overflow-x-scroll">
             <table className="min-w-full">
               <thead>
                 <tr className="text-left text-sm">
