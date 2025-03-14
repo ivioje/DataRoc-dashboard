@@ -29,7 +29,7 @@ const BusinessMetric = () => {
               ))}
             </div>
             {/**<1300px */}
-            <div className="mdx:min-w-[10%] w-full md:w-[70%] lgx:hidden flex flex-col items-start mt-2 mx-4">
+            <div className="mdx:min-w-[10%] w-full md:w-[70%] lgx:hidden flex flex-col items-start mt-2 sm:mx-4">
               <div className="w-full"><PortfolioComparisonChart /></div>
               <div className="w-full"><OperatingExpenses /></div>
             </div>

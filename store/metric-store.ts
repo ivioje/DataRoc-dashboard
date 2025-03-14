@@ -56,7 +56,7 @@ export const useMetricStore = create<MetricState>((set, get) => ({
         loading: false,
         showResults: true,
       });
-    }, 1500);
+    }, 3000);
   },
 
   setSelectedMetric: (metric) => set({ selectedMetric: metric, data: { nodes: [], links: [] } }),
@@ -85,7 +85,7 @@ export const useMetricStore = create<MetricState>((set, get) => ({
   
       
       set({ gatheringData: false, data: newData, chartGenerated: true });
-    }, 1500);
+    }, 3000);
   },
   
 

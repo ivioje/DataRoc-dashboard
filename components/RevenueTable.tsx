@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { Filter, Search } from "lucide-react";
+import { DownloadIcon, Filter } from "lucide-react";
 import ButtonComponent from "./shared/Button";
 import {
   DropdownMenu,
@@ -11,6 +11,7 @@ import {
 import { formatDate } from "@/utils/formatDate";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { useRevenueStore } from "@/store/revenue-store";
+import Search from "./Search";
 
 export default function RevenueTable() {
   const { 
@@ -34,11 +35,11 @@ export default function RevenueTable() {
   }, []);
 
   return (
-  <div className="p-6 mb-5 mt-3">
+  <div className="sm:p-6 mb-5 mt-3">
       <h2 className="text-gray-500 w-full uppercase text-[12px] font-semibold mb-4 flex items-start">
         Revenue Per Employee
       </h2>
-      <div className="flex justify-between items-center mb-3 border-b border-t-0 border-l-0 border-r-0 border-[#CFFAFE]">
+      <div className="flex sm:justify-between justify-center flex-wrap items-center mb-3 border-b border-t-0 border-l-0 border-r-0 border-[#CFFAFE]">
         <div className="flex font-medium text-sm">
           <button
             onClick={() => filterUsers("All")}
@@ -164,18 +165,15 @@ export default function RevenueTable() {
               </RadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
-          <div className="flex items-center w-[40%] relative bg-[#ECFEFF]">
-            <Search size={20} className="text-gray-800 absolute mx-3" />
-            <input
-              type="text"
-              placeholder="Search Users by Name, Email or Date"
-              className="outline-none bg-[#ECFEFF] w-full ml-8 rounded py-2 px-2 placeholder:text-gray-600 placeholder:text-sm"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
+            <div className="sm:flex hidden items-center lg:w-[40%] w-[70%] relative bg-cyan-50">
+              <Search search={search} setSearch={setSearch} />
+            </div>
         </div>
-        <ButtonComponent text="Download Invoice" />
+        <div className="sm:block hidden"><ButtonComponent text="Download Invoice" /></div>
+        <div className="sm:hidden block"><ButtonComponent text={<DownloadIcon />} /></div>
+      </div>
+      <div className="sm:hidden flex items-center w-full relative bg-cyan-50 my-3">
+        <Search search={search} setSearch={setSearch} />
       </div>
 
     <div className="md:overflow-auto overflow-x-scroll">

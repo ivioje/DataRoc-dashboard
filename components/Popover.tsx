@@ -4,19 +4,31 @@ import React from 'react';
 import MetricSelector from './metric/MetricSelector';
 import { useMetricStore } from '@/store/metric-store';
 import LoadingSpinner from './Spinner';
+import Image from 'next/image';
+import generatingMetricImage from "../assets/ai-metric.gif";
 
 const PopoverComponent = () => {
 const { close } = useModalStore();
   const { 
-    searchQuery, setSearchQuery, generateMetrics, loading, selectedMetric, startDataGathering, chartGenerated, generatedMetrics
+    searchQuery, 
+    setSearchQuery, 
+    generateMetrics, 
+    loading, 
+    selectedMetric, 
+    startDataGathering, 
+    chartGenerated, 
+    generatedMetrics,
+    gatheringData
   } = useMetricStore();
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl sm:w-full w-[95%] md:max-w-xl min-h-[250px]">
+      <div className="bg-white rounded-lg shadow-xl w-[95%] md:max-w-xl min-h-[250px]">
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
-          <h2 className="text-sm font-medium text-gray-600 uppercase tracking-wider">NEW AI METRIC</h2>
+          <h2 className="text-sm font-medium text-gray-600 uppercase tracking-wider">
+            NEW AI METRIC
+          </h2>
           <button 
             onClick={close}
             className="text-gray-900 hover:text-gray-600 transition-colors"
@@ -25,10 +37,17 @@ const { close } = useModalStore();
           </button>
         </div>
 
+        {gatheringData && (
+          <div className='flex flex-col justify-center p-3'>
+            <Image src={generatingMetricImage} alt='metric' className='w-fit h-64' />
+            <span className='text-gray-600 my-2'>AI is Gathering Data</span>
+          </div>
+        )}
         {/* Search Input */}
+        {!gatheringData && (
         <div className="p-6">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="relative flex items-start sm:flex-row flex-col">
+            <div className="absolute inset-y-0 sm:-top-0 -top-12  left-0 pl-3 flex items-center pointer-events-none">
              <SearchIcon size={20} />
             </div>
             <input 
@@ -36,12 +55,12 @@ const { close } = useModalStore();
               placeholder="What metric would you like to measure?"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-[80%] pl-10 pr-24 mr-2 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:bg-cyan-50 focus:border-cyan-500 outline-none text-sm"
+              className="sm:w-[80%] w-full pl-10 pr-24 mr-2 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-cyan-500 focus:bg-cyan-50 focus:border-cyan-500 outline-none text-sm"
             />
             {searchQuery && (
               <button 
                 onClick={() => setSearchQuery('')}
-                className="absolute right-28 top-1/2 transform -translate-y-1/2 text-gray-900 hover:text-gray-600"
+                className="absolute sm:right-28 right-1 sm:top-1/2 top-6 transform -translate-y-1/2 text-gray-900 hover:text-gray-600"
               >
                   <XIcon size={20} />
               </button>
@@ -49,7 +68,7 @@ const { close } = useModalStore();
             <button 
               onClick={generateMetrics}
               disabled={searchQuery === ''}
-              className={` ${searchQuery === '' ? 'cursor-not-allowed bg-gray-600': 'cursor-pointer hover:bg-gray-800'} bg-gray-900 h-[43px] w-[85px] text-white px-4 py-3 rounded-md text-sm transition-colors`}
+              className={` ${searchQuery === '' ? 'cursor-not-allowed bg-gray-600': 'cursor-pointer hover:bg-gray-800'} bg-gray-900 h-[43px] w-[85px] text-white px-4 py-3 rounded-md text-sm transition-colors sm:mt-0 mt-2`}
             >
               {!loading && 
                 <span className='flex justify-center'>Generate
@@ -75,8 +94,9 @@ const { close } = useModalStore();
             <MetricSelector />
           }
         </div>
+        )}
 
-        {generatedMetrics && selectedMetric && !(searchQuery === '') &&
+        {!gatheringData && generatedMetrics && selectedMetric && !(searchQuery === '') &&
           <div className="mt-1 flex justify-end gap-3 w-full p-6">
             <button
               onClick={startDataGathering}
