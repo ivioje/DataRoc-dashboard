@@ -7,7 +7,7 @@ interface MetricState {
   generatedMetrics: { name: string; icon: string }[];
   selectedMetric: string | null;
   gatheringData: boolean;
-  data: any
+  data: any;
   chartGenerated: boolean;
   setSearchQuery: (query: string) => void;
   setLoading: (loading: boolean) => void;
@@ -25,7 +25,10 @@ export const useMetricStore = create<MetricState>((set, get) => ({
   generatedMetrics: [],
   selectedMetric: null,
   gatheringData: false,
-  data: { nodes: [{name: '', value:0, color: ''}], links: [{source: 0, target: 0, value: 0}] },
+  data: { 
+    nodes: [], 
+    links: [] 
+  },
   chartGenerated: false,
 
   setSearchQuery: (query) => set({ searchQuery: query, showResults: false }),
@@ -56,7 +59,7 @@ export const useMetricStore = create<MetricState>((set, get) => ({
         loading: false,
         showResults: true,
       });
-    }, 3000);
+    }, 5000);
   },
 
   setSelectedMetric: (metric) => set({ selectedMetric: metric, data: { nodes: [], links: [] } }),
@@ -65,29 +68,36 @@ export const useMetricStore = create<MetricState>((set, get) => ({
     set({ gatheringData: true, chartGenerated: false });
   
     setTimeout(() => {
+      // New data structure that matches the diagram in the image
       const newData = {
         nodes: [
-          { from: "Landing Page", value: 11203, color: "#FDA4AF" },
-          { from: "About Us Page", value: 45000, color: "#FDE68A" },
-          { from: "Buy Products Page", value: 56504, color: "#86EFAC" },
-          { from: "Events Page", value: 45986, color: "#7DD3FC" },
-          { from: "What's New Page", value: 23000, color: "#06B6D4" },
-          { from: "Get to Know Us Page", value: 27000, color: "#4B5563" },
+          { name: "Home", id: 0, color: "#23c0de" },
+          { name: "About Us", id: 1, color: "#ffffff" },
+          { name: "Buy Products", id: 2, color: "#ffffff" },
+          { name: "Events", id: 3, color: "#ffffff" },
+          { name: "What's New", id: 4, color: "#ffffff" },
+          { name: "Exit", id: 5, color: "#23c0de" },
+          { name: "Check Out", id: 6, color: "#18d3e3" }
         ],
         links: [
-          { source: 0, target: 1, value: 11203 },
-          { source: 1, target: 2, value: 45000 },
-          { source: 2, target: 3, value: 56504 },
-          { source: 3, target: 4, value: 45986 },
-          { source: 4, target: 5, value: 23000 },
-        ],
+          { source: 0, target: 1, value: 11203, color: "#64c9f2" }, // Home -> About Us
+          { source: 0, target: 2, value: 45000, color: "#64c9f2" }, // Home -> Buy Products  
+          { source: 0, target: 3, value: 30504, color: "#64c9f2" }, // Home -> Events
+          { source: 0, target: 4, value: 45988, color: "#64c9f2" }, // Home -> What's New
+          { source: 1, target: 5, value: 23000, color: "#f9c27f" }, // About Us -> Exit
+          { source: 2, target: 5, value: 23000, color: "#f9968e" }, // Buy Products -> Exit
+          { source: 3, target: 5, value: 23000, color: "#8ce5a6" }, // Events -> Exit
+          { source: 4, target: 5, value: 23000, color: "#f9b07f" }, // What's New -> Exit
+          { source: 1, target: 6, value: 18203, color: "#f9c27f" }, // About Us -> Check Out
+          { source: 2, target: 6, value: 18203, color: "#f9968e" }, // Buy Products -> Check Out
+          { source: 3, target: 6, value: 18203, color: "#8ce5a6" }, // Events -> Check Out
+          { source: 4, target: 6, value: 18203, color: "#f9b07f" }  // What's New -> Check Out
+        ]
       };
   
-      
       set({ gatheringData: false, data: newData, chartGenerated: true });
-    }, 3000);
+    }, 5000);
   },
   
-
   setData: (data) => set({ data, chartGenerated: !!data }),
 }));

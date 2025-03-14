@@ -29,9 +29,9 @@ const WebsitePerformanceMetrics = () => {
             <div className='xl:block hidden'><WebsiteTopPagesTable /></div>
         </div>
         <div className='xl:w-[40%] w-full justify-center items-start flex xl:flex-col sm:flex-row flex-col xl:mx-4 mb-5 xl:mt-0 mt-5'>
-            <WebsiteRecurringRevenueChart />
-            <AddMetric />
-    </div>
+          <WebsiteRecurringRevenueChart />
+          <AddMetric />
+        </div>
         <div className='xl:hidden block w-full'><WebsiteTopPagesTable /></div>
     </div>
     </div>

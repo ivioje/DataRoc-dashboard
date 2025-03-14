@@ -23,7 +23,7 @@ const { close } = useModalStore();
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl w-[95%] md:max-w-xl min-h-[250px]">
+      <div className={`bg-white rounded-lg shadow-xl w-[95%] md:max-w-xl min-h-[250px] ${gatheringData? 'flex flex-col justify-center':''}`}>
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <h2 className="text-sm font-medium text-gray-600 uppercase tracking-wider">
@@ -39,8 +39,10 @@ const { close } = useModalStore();
 
         {gatheringData && (
           <div className='flex flex-col justify-center p-3'>
-            <Image src={generatingMetricImage} alt='metric' className='w-fit h-64' />
-            <span className='text-gray-600 my-2'>AI is Gathering Data</span>
+            <div className='flex flex-col justify-center'>
+              <Image src={generatingMetricImage} alt='metric' className='w-fit h-64' />
+              <span className='text-gray-600 my-2'>AI is Gathering Data</span>
+            </div>
           </div>
         )}
         {/* Search Input */}
