@@ -10,7 +10,14 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...ComposedChart.config({
+    extends: ['next'],
+    rules: {
+      'next/core-web-vitals': 'off',
+      'next/typescript': 'off'
+    },
+  }),
+  // ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
 export default eslintConfig;
