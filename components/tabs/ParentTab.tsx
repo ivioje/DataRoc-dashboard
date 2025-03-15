@@ -4,7 +4,7 @@ import React from "react";
 import { TabsContent } from "../ui/tabs";
 import { useTabStore } from "@/store/tab-store";
 import BusinessMetric from "./BusinessMetric";
-import WebsitePerformanceMetrics from "./WebsitePerformanceMetrics.tab";
+import WebsitePerformanceMetrics from "./WebsitePerformanceMetricsTab";
 
 const ParentTab = () => {
   const tab = useTabStore((state: any) => state.tab)

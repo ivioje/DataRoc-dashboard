@@ -7,7 +7,6 @@ const ConversionByDeviceChart = () => {
   const chartInstance = useRef<Chart | null>(null);
 
   useEffect(() => {
-    // Destroy existing chart if it exists
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }

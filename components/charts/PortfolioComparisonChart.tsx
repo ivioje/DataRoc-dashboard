@@ -1,15 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { Radar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import {Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend} from "chart.js";
 import { useChartStore } from "@/store/chart-store";
 
 ChartJS.register(

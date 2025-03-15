@@ -14,7 +14,7 @@ const BusinessMetric = () => {
         <div className="my-1 md:min-w-[60%] w-full">
           <div className="flex md:flex-row flex-col w-full justify-center">
           {/**cards */}
-            <div className="flex items-start lgx:justify-center md:justify-start justify-center lgx:w-full mdx:w-fit md:w-[40%] w-full lgx:flex-row flex-col bg-white rounded">
+            <div className="flex items-start lgx:justify-center md:justify-start justify-center lgx:w-full mdx:w-fit md:w-2/5 w-full lgx:flex-row flex-col bg-white rounded">
               {CardStat.map((card, index) => (
                 <div key={card.id} className="py-2 w-full">
                   <Card
@@ -37,8 +37,8 @@ const BusinessMetric = () => {
 
           {/**charts */}
           <div className="lgx:m-2 w-full lgx:flex hidden">
-            <div className="w-full bg-white max-h-[250px] lgx:w-[60%]"><OperatingExpenses /></div>
-            <div className="w-full bg-white lgx:max-h-[250px] h-[330px] lgx:w-[40%] mx-2"><CustomerRetentionChart /></div>
+            <div className="w-full bg-white max-h-[250px] lgx:w-3/5"><OperatingExpenses /></div>
+            <div className="w-full bg-white lgx:max-h-[250px] h-[330px] lgx:w-2/5 mx-2"><CustomerRetentionChart /></div>
           </div>
           <div className="lgx:block hidden">
             <RevenueTable />

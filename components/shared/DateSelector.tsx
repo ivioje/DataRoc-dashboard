@@ -16,7 +16,7 @@ const DateRangePicker = () => {
           <span className="relative">
             <CalendarDaysIcon
               size={20}
-              className="absolute left-0 -top-[10px] z-10 mx-3"
+              className="absolute left-0 -top-2.5 z-10 mx-3"
             />
           </span>
           <DatePicker
@@ -26,7 +26,7 @@ const DateRangePicker = () => {
             startDate={startDate}
             endDate={endDate}
             placeholderText="Start Date"
-            className="outline-none z-[1] border w-full border-gray-300 p-2 shadow-sm rounded-[10px] pl-10 placeholder:text-sm"
+            className="outline-none z-[1] border w-full border-gray-300 p-2 shadow-sm rounded-md pl-10 placeholder:text-sm"
             dateFormat="d MMM"
            portalId="root"
           />
@@ -46,7 +46,7 @@ const DateRangePicker = () => {
           <span className="relative">
             <CalendarDaysIcon
               size={20}
-              className="absolute left-0 -top-[10px] z-10 mx-3"
+              className="absolute left-0 -top-2.5 z-10 mx-3"
             />
           </span>
           <DatePicker
@@ -56,7 +56,7 @@ const DateRangePicker = () => {
             startDate={startDate}
             endDate={endDate}
             placeholderText="End Date"
-            className="outline-none z-[1] w-full border border-gray-300 p-2 shadow-sm rounded-[10px] pl-10 placeholder:text-sm"
+            className="outline-none z-[1] w-full border border-gray-300 p-2 shadow-sm rounded-md pl-10 placeholder:text-sm"
             dateFormat="d MMM yyyy"
             minDate={startDate || undefined}
             portalId="root"

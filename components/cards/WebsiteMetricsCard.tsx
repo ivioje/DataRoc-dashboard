@@ -1,6 +1,6 @@
+import React from 'react';
 import { websiteMetricsData as metricsData } from '@/lib/data';
 import { ArrowDown, ArrowUp } from 'lucide-react';
-import React from 'react';
 
 const WebsiteMetricCards = () => {
   const getChangeColor = (changeType: string) => {

@@ -18,7 +18,7 @@ const Filter = () => {
         <div className="">
           <Dropdown />
         </div>
-        <div className="flex items-center md:w-[60%]">
+        <div className="flex items-center md:w-3/5">
           <div className="md:block hidden"><DateRangePicker /></div>
           <div className="flex items-center justify-center sm:px-6 px-3">
             <FilterIcon size={21} className="mr-1" />

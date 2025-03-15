@@ -5,8 +5,6 @@ import { useTabStore } from "@/store/tab-store";
 
 export default function SelectLikeTab() {
   const tab = useTabStore((state: any) => state.tab)
-  
-
   const isSelected = tab.selectedValue !== "";
   const textColorClass = isSelected ? "text-[#157A6E]" : "text-gray-600";
 

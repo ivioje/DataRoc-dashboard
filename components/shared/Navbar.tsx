@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link href='/' onClick={()=> router.refresh()}>
             <Image src={logo} alt="logo" width={80} height={38} />
           </Link>
-          <div className="defaultFlex xl:w-[15%] lg:w-[20%] md:w-[25%] sm:w-[30%] xs:w-[35%] w-[40%]">
+          <div className="defaultFlex xl:w-[15%] lg:w-[20%] md:w-1/4 sm:w-[30%] xs:w-[35%] w-2/5">
             <SearchIcon size={18} className="sm:block hidden" />
             <SearchIcon size={20} className="sm:hidden block" />
             <BellIcon size={18} className="sm:block hidden" />

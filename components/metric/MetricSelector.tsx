@@ -26,7 +26,11 @@ const MetricSelector = () => {
                     {metric.name}
                   </span>
                   <button>
-                    {selectedMetric === metric.name ? <Check size={25} className="text-green-700" /> : <PlusIcon size={25} className="text-gray-700" />}
+                    {selectedMetric === metric.name ? 
+                      <Check size={25} className="text-green-700" /> 
+                      : 
+                      <PlusIcon size={25} className="text-gray-700" />
+                    }
                   </button>
                 </div>
               ))

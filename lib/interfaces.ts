@@ -6,16 +6,6 @@ export interface CardInterface {
   caption: string;
 }
 
-export interface GlobalContextType {
-  selectedValue: string;
-  handleSelectChange: (value: string) => void;
-}
-
-export const defaultContextValue: GlobalContextType = {
-  selectedValue: "",
-  handleSelectChange: () => {},
-};
-
 export interface Title {
   Paid: string;
   Unpaid: string;

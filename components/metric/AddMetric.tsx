@@ -18,7 +18,7 @@ const AddMetric = () => {
           <div className="mb-2">
             <PlusIcon size={28} />
           </div>
-          <p className="text-gray-600 font-medium tracking-wide uppercase text-[12px]">New AI Metric</p>
+          <p className="text-gray-600 font-medium tracking-wide uppercase text-xs">New AI Metric</p>
         </div>
       </div>
       }

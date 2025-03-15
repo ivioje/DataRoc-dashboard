@@ -24,7 +24,6 @@ const { close } = useModalStore();
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
       <div className={`bg-white rounded-lg shadow-xl w-[95%] md:max-w-xl min-h-[250px] ${gatheringData? 'flex flex-col justify-center':''}`}>
-        {/* Header */}
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <h2 className="text-sm font-medium text-gray-600 uppercase tracking-wider">
             NEW AI METRIC
