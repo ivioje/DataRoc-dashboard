@@ -1,36 +1,6 @@
 import { create } from 'zustand';
 import { employees, titles } from "@/lib/data";
-
-interface Employee {
-  id: number;
-  name: string;
-  email: string;
-  status: string;
-  deposit: string;
-  amount: number;
-  paymentDate: string;
-}
-
-interface RevenueState {
-  employees: Employee[];
-  filteredUsers: Employee[];
-  search: string;
-  isActive: string;
-  sortBy: string;
-  title: string;
-  total: number;
-  selectedRows: Set<number>;
-  
-  setSearch: (search: string) => void;
-  setSortBy: (sortBy: string) => void;
-  filterUsers: (filter: string) => void;
-  sortUsers: () => void;
-  searchUsers: () => void;
-  toggleSelectAll: () => void;
-  toggleSelectRow: (id: number) => void;
-  isAllSelected: () => boolean;
-  isRowSelected: (id: number) => boolean;
-}
+import { RevenueState } from '@/lib/interfaces';
 
 export const useRevenueStore = create<RevenueState>((set, get) => ({
   employees: employees,
