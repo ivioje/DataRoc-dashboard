@@ -42,7 +42,7 @@ const { close } = useModalStore();
           <div className='flex flex-col justify-center p-3'>
             <div className='flex flex-col justify-center'>
               <Image src={generatingMetricImage} alt='metric' className='w-fit h-64' />
-              <span className='text-gray-600 my-2'>AI is Gathering Data</span>
+              <span className='text-gray-600 my-2 text-center text-lg'>AI is Gathering Data</span>
             </div>
           </div>
         )}
@@ -56,7 +56,7 @@ const { close } = useModalStore();
             </div>
             <input 
               type="search"
-              placeholder="What metric would you like to measure?"
+              placeholder="e.g. user analysis"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => {e.key === 'Enter' && searchQuery !== ''? generateMetrics() : null}}
