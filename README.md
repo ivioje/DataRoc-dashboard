@@ -1,14 +1,7 @@
 # DataRoc Dashboard
 
 ## Overview
-DataRoc Dashboard is a web-based application designed to provide real-time data visualization and analytics. This project aims to help users make informed decisions by presenting data in an intuitive and interactive manner.
-
-## Features
-- Real-time data updates
-- Interactive charts and graphs
-- User authentication and authorization
-- Customizable dashboards
-- Export data to CSV and PDF formats
+DataRoc Dashboard is a web-based application designed to provide real-time data visualization and analytics. This project aims to help users make informed decisions by presenting data in an intuitive and interactive way.
 
 ## Installation
 To get started with the DataRoc Dashboard, follow these steps:
